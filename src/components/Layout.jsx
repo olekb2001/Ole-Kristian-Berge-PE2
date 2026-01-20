@@ -5,23 +5,13 @@ export default function Layout(){
         <>
         {/*navbar for later*/}
         <div>Navbar fir later</div>
-        
-        
-        
-        
-        
+
+        <main>
+            <Outlet />
+        </main>
+
+        {/*footer for later*/}
+        <div>Footer for later</div>
         </>
-
-
-
-
-
-
     )
-
-
-
-
-
-
 }
