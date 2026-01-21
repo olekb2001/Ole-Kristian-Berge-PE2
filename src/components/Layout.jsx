@@ -3,14 +3,12 @@ import Navbar from "./Navbar";
 
 export default function Layout(){
     //temp stat foir checking wheter navbar logic works
-    const isLoggedIn = "false";
+    const isLoggedIn = false;
     const role = "customer";
 
     return(
         <>
-        {/*navbar for later*/}
-        <div>Navbar fir later</div>
-
+        <Navbar isLoggedIn={isLoggedIn} role={role}/>
         <main>
             <Outlet />
         </main>
