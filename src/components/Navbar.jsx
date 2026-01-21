@@ -43,16 +43,26 @@ export default function Navbar({ isLoggedIn, role }) {
             {isAvatarMenuOpen && (
               <div className="avatar-dropdown">
                 {role === "customer" && (
-                  <Link to="/bookings">Bookings</Link>
+                    <div className="dropdown-item">
+                        <Link to="/bookings">Bookings</Link>
+                    </div>
                 )}
 
                 {role === "manager" && (
-                  <Link to="/my-venues">My Venues</Link>
-                )}
+                    <div className="dropdown-item">
+                        <Link to="/my-venues">My Venues</Link>
+                    </div>
+                )}  
+                <div className="dropdown-item">
+                    <Link to="/profile">Update Avatar</Link>
+                </div>
 
-                <Link to="/profile">Update Avatar</Link>
+                <div className="dropdown-item">
                 <Link to="/logout">Logout</Link>
+                </div>
+
               </div>
+
             )}
           </div>
         )}
