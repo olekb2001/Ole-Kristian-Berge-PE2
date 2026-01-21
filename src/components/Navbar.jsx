@@ -51,7 +51,7 @@ export default function Navbar({ isLoggedIn, role }) {
                 )}
 
                 <Link to="/profile">Update Avatar</Link>
-                <Link to="/profile">Update Avatar</Link>
+                <Link to="/logout">Logout</Link>
               </div>
             )}
           </div>
