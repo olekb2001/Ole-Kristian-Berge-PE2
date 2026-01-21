@@ -50,8 +50,8 @@ export default function Navbar({ isLoggedIn, role }) {
                   <Link to="/my-venues">My Venues</Link>
                 )}
 
-                <button type="button">Update Avatar</button>
-                <button type="button">Logout</button>
+                <Link to="/profile">Update Avatar</Link>
+                <Link to="/profile">Update Avatar</Link>
               </div>
             )}
           </div>
