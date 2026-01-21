@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import logo from "../assets/Holidaze-logo-desktop.png"
+import "./Navbar.css";
+
 
 export default function Navbar({isLoggedIn, role}){
     return(
@@ -13,7 +15,7 @@ export default function Navbar({isLoggedIn, role}){
                 <Link to="/">Home</Link>
                 <Link to="/venues">Venues</Link>
 
-                {!isLoggedIn && <Link to="/login">Login</Link>}
+                {!isLoggedIn && <Link to="/login" className="login-button">Login</Link>}
 
                 {isLoggedIn && (
                     <button className ="avatar-button">
