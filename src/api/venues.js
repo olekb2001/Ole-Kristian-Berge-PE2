@@ -9,3 +9,18 @@ export async function getVenues() {
         return[];
     }
 }
+
+
+
+export async function findVenueId(id) {
+    try{
+        const response = await fetch(`https://api.noroff.dev/api/v1/holidaze/venues/${id}`);
+        const data = await response.json();
+        return data;
+    }
+
+    catch(error) {
+        console.log("not able to find the venue", error);
+        return null;
+    }
+}
