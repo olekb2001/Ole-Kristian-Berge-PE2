@@ -1,6 +1,6 @@
 import "./VenueCard.css";
 
-export default function VenueCard(){
+export default function VenueCard({venue}){
     return(
         <div className="venue-card-container">
             <div className="venue-image"></div>
