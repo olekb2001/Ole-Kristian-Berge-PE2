@@ -10,10 +10,11 @@ export default function Venues() {
 
       <div className="venues-grid">
         <VenueCard/>
-
-
-
-
+        <VenueCard/>
+        <VenueCard/>
+        <VenueCard/>
+        <VenueCard/>
+        <VenueCard/>
       </div>
 
 
