@@ -1,4 +1,5 @@
 import "./VenueCard.css";
+import { Link } from "react-router-dom";
 
 export default function VenueCard({venue}){
     return(
@@ -10,7 +11,7 @@ export default function VenueCard({venue}){
                 <h3 className="venue-title">{venue.name}</h3>
                 <p className="venue-location">{venue.location?.city}, {venue.location?.country}</p>
                 <p className="venue-price">{venue.price} / night</p>
-                <button className="venue-button">Book Now</button>
+                <Link to={`/venues/${venue.id}`} className="venue-button">Book Now</Link>
             </div>
         </div>
     )

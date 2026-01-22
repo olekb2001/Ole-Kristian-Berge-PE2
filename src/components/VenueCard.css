@@ -52,7 +52,6 @@
     margin-top: 8px;
     height: 44px;
     border-radius: 8px;
-    border: none;
     background: #f97373;
 
     color: #FFF;
@@ -62,7 +61,10 @@
     font-style: normal;
     font-weight: 600;
 
-    cursor: pointer;
+    text-decoration: none;
+    justify-content: center;
+    align-items: center;
+    display: flex;
 }
 
 .venue-button:hover {
