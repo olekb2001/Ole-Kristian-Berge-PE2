@@ -7,6 +7,7 @@ import Bookings from "./pages/Bookings";
 import MyVenues from "./pages/MyVenues";
 import Profile from "./pages/Profile";
 import VenueDetails from "./pages/VenueDetails";
+import Register from "./pages/Register";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/venues" element={<Venues />} />
           <Route path="/venues/:id" element={<VenueDetails />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
           <Route path="/bookings" element={<Bookings />} />
           <Route path="/my-venues" element={<MyVenues />} />
           <Route path="/profile" element={<Profile />} />
