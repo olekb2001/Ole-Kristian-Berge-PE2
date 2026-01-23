@@ -20,7 +20,7 @@ export default function VenueCard({venue}){
                 <h3 className="venue-title">{venue.name}</h3>
                 {/* location might not exist so its better to be on the safe side and add optional chaining so it does not crash */}
                 <p className="venue-location">{venue.location?.city}, {venue.location?.country}</p>
-                <p className="venue-price">{venue.price} / night</p>
+                <p className="venue-price">${venue.price} / night</p>
                 {/* this navigates to the details page by using the venues id*/}
                 <Link to={`/venues/${venue.id}`} className="venue-button">Book Now</Link>
             </div>
