@@ -31,6 +31,7 @@
 }
 .left-venue-details{
     flex: 1;
+    max-width: 1000px;
 }
 
 .venue-details-image{
@@ -47,7 +48,59 @@
 }
 .description-venue-details{
     font-size: 17px;
-    max-width: 742px;
+    max-width: 1000px;
     font-family: "Inter", sans-serif;
 }
-.right
+
+
+
+.right-venue-details {
+    width: 432px;
+}
+.booking-calender-card{
+    display: flex;
+    padding: 16px;
+    flex-direction: column;
+    gap: 16px;
+    border-radius: 8px;
+    border: 1px solid rgba(10, 37, 64, 0.20);
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+}
+
+.booking-price {
+    font-size: 20px;
+    font-weight: 700;
+    font-family: "Inter", sans-serif;
+    color: #111;
+}
+
+.calender-placeholder-css {
+    height: 320px;
+    border-radius: 8px;
+    border: 1px solid rgba(10, 37, 64, 0.20);
+}
+
+.booking-button {
+    height: 44px;
+    border-radius: 8px;
+    background: #0A2540;
+    color: white;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+
+    color: #FFF;
+
+    text-align: center;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+}
+.booking-button:hover{
+    background: #103860;
+}
+
+
+
+

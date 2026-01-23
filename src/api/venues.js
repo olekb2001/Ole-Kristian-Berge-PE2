@@ -1,8 +1,10 @@
+const API_URL = "https://v2.api.noroff.dev/holidaze";
+
 export async function getVenues() {
     try{
-        const response = await fetch("https://api.noroff.dev/api/v1/holidaze/venues");
-        const data = await response.json();
-        return data;
+        const response = await fetch(`${API_URL}/venues`);
+        const json = await response.json();
+        return json.data;
     }
     catch(error){
         console.error("not found the venues", error);
@@ -14,9 +16,9 @@ export async function getVenues() {
 
 export async function findVenueId(id) {
     try{
-        const response = await fetch(`https://api.noroff.dev/api/v1/holidaze/venues/${id}`);
-        const data = await response.json();
-        return data;
+        const response = await fetch(`${API_URL}/venues/${id}`);
+        const json = await response.json();
+        return json.data;
     }
 
     catch(error) {

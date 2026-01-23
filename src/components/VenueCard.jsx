@@ -5,7 +5,7 @@ export default function VenueCard({venue}){
     return(
         <div className="venue-card-container">
             <div className="venue-image">
-                {venue.media?.[0] && (<img src = {venue.media[0]} alt = {venue.name}/>)}
+                {venue.media?.[0]?.url && (<img src = {venue.media[0].url} alt = {venue.name}/>)}
             </div>
             <div className="venue-info">
                 <h3 className="venue-title">{venue.name}</h3>

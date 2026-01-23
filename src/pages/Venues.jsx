@@ -29,7 +29,7 @@ export default function Venues() {
       <h2 className="all-venues-title">All Venues</h2>
 
       <div className="venues-grid">
-        {venues.map((venue) => (
+        {venues?.map((venue) => (
           <VenueCard key ={venue.id} venue = {venue}/>
         ))}
       </div>

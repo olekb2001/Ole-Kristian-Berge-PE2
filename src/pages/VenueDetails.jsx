@@ -35,7 +35,7 @@ export default function VenueDetails() {
             {/*left side of page*/}
             <div className="left-venue-details">
                 <div className="venue-details-image">
-                    {venue.media?.[0] && (<img src = {venue.media[0]} alt={venue.name}/>)}
+                    {venue.media?.[0]?.url && (<img src = {venue.media[0].url} alt={venue.name}/>)}
                 </div>
                 
                 <p className="description-venue-details"> {venue.description} </p>
