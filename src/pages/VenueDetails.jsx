@@ -28,7 +28,7 @@ export default function VenueDetails() {
   return ( 
     <div className="venue-details-page">
         <div className="top-of-page">
-            <h1 className="venue-details-header"></h1>
+            <h1 className="venue-details-header">{venue.name}</h1>
             <p className="venue-details-loc">{venue.location?.city}, {venue.location?.country}</p>
         </div>
         <div className="layout-venue-details">
