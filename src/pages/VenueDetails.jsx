@@ -14,7 +14,7 @@ export default function VenueDetails() {
     const [venue, setVenue] = useState(null)
     useEffect(() =>{
         async function loadTheVenue() {
-            const dataRecieved = await findVenueId(Id);
+            const dataRecieved = await findVenueId(id);
             setVenue(dataRecieved);
         }
         loadTheVenue();
