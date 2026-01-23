@@ -4,11 +4,31 @@
 // then i want to save the result in state
 // if the venue has not leaded, i want to show a loading message on screen
 // when loading is finished then i want to display the name and desc of the venue
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { findVenueId } from "../api/venues";
+
 
 export default function VenueDetails() {
-  return (
+    const {id } = useParams();
+    const [venue, setVenue] = useState(null)
+    useEffect(() =>{
+        async function loadTheVenue() {
+            const dataRecieved = await findVenueId(Id);
+            setVenue(dataRecieved);
+        }
+        loadTheVenue();
+    },[id]
+    );
+
+    if (!venue){
+        return <p>Loading Venue...</p>
+    }
+
+  return ( 
     <div>
-      <h1>Venue Details Page</h1>
+        <h1>{venue.name}</h1>
+        <p>{venue.description}</p>
     </div>
   );
 }
