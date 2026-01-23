@@ -7,7 +7,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { findVenueId } from "../api/venues";
-
+import "./VenueDetails.css";
 
 export default function VenueDetails() {
     const {id } = useParams();
