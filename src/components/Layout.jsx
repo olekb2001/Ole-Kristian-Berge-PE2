@@ -1,3 +1,11 @@
+/*
+layout wraps all pages in the app 
+
+navbar and the footer stay consistent across the routes.
+outlet renders the page that matches the current url.
+*/
+
+
 import { Outlet } from "react-router-dom";
 import Navbar from "./Navbar";
 
