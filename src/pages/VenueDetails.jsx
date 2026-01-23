@@ -26,9 +26,34 @@ export default function VenueDetails() {
     }
 
   return ( 
-    <div>
-        <h1>{venue.name}</h1>
-        <p>{venue.description}</p>
+    <div className="venue-details-page">
+        <div className="top-of-page">
+            <h1 className="venue-details-header"></h1>
+            <p className="venue-details-loc">{venue.location?.city}, {venue.location?.country}</p>
+        </div>
+        <div className="layout-venue-details">
+            {/*left side of page*/}
+            <div className="left-venue-details">
+                <div className="venue-details-image">
+                    {venue.media?.[0] && (<img src = {venue.media[0]} alt={venue.name}/>)}
+                </div>
+                
+                <p className="description-venue-details"> {venue.description} </p>
+            </div>
+            {/*right side og page*/}
+            <div className="right-venue-details">
+                <div className="booking-calender-card">
+                    <p className="booking-price">${venue.price} / night</p>
+
+                    {/*placheolder for the calender*/}
+                    <div className="calender-placeholder-css"></div>
+
+                    <button className="booking-button">
+                        Book Now
+                    </button>
+                </div>
+            </div>
+        </div>
     </div>
   );
 }
