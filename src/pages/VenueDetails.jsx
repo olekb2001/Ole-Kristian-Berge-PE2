@@ -49,6 +49,13 @@ export default function VenueDetails() {
 
                 {/* amneties*/}
                 <h2 className="amenities-title">Amenities</h2>
+
+                <div className="amenities-cont">
+                    {venue.meta?.wifi && <span className="amenity">✓ WiFi</span>}
+                    {venue.meta?.wifi && <span className="amenity">✓ WiFi</span>}
+                    {venue.meta?.wifi && <span className="amenity">✓ WiFi</span>}
+                    {venue.meta?.wifi && <span className="amenity">✓ WiFi</span>}
+                </div>
             </div>
             {/*right side og page*/}
             <div className="right-venue-details">
