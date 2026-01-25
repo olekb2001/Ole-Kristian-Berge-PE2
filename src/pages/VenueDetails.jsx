@@ -46,6 +46,9 @@ export default function VenueDetails() {
                 </div>
                 
                 <p className="description-venue-details"> {venue.description} </p>
+
+                {/* amneties*/}
+                <h2 className="amenities-title">Amenities</h2>
             </div>
             {/*right side og page*/}
             <div className="right-venue-details">
