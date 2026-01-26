@@ -1,60 +1,60 @@
 .venues-page {
-    padding: 32px 48px;
+  padding: 32px 48px;
 }
 
-.venues-title{
-    color: #111;
-    font-family: "Poppins", sans-serif;
-    font-size: 40px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    margin-bottom: 8px;
+.venues-title {
+  color: #111;
+  font-family: "Poppins", sans-serif;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin-bottom: 8px;
 }
-.venues-subtitle{
-    color: #111;
-    font-family: "Inter", sans-serif;
-    font-size: 17px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    margin-bottom: 8px;
+.venues-subtitle {
+  color: #111;
+  font-family: "Inter", sans-serif;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-bottom: 8px;
 }
 
 .all-venues-title {
-    font-family: "Poppins", sans-serif;
-    color: #111;
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
-    margin-top: 32px;
-    margin-bottom: 32px;
+  font-family: "Poppins", sans-serif;
+  color: #111;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  margin-top: 32px;
+  margin-bottom: 32px;
 }
 
-.venue-search{
-    display: flex;
-    width: 400px;
-    height: 40px;
-    padding: 10px 10px 10px 12px;
-    align-items: center;
+.venue-search {
+  display: flex;
+  width: 400px;
+  height: 40px;
+  padding: 10px 10px 10px 12px;
+  align-items: center;
 
-    border-radius: 8px;
-    border: 1.5px solid rgba(10, 37, 64, 0.30);
+  border-radius: 8px;
+  border: 1.5px solid rgba(10, 37, 64, 0.3);
 
-    background: #FFF;
+  background: #fff;
 
-    color: #6B7280;
+  color: #6b7280;
 
-    font-family: "Inter", sans-serif;
-    font-size: 15px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+  font-family: "Inter", sans-serif;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
 
 .venues-grid {
-    display: flex;
-    gap: 24px;
-    flex-wrap: wrap;
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
 }

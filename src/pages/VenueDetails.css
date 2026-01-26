@@ -1,131 +1,127 @@
-.venue-details-page{
-    padding: 32px 48px;
+.venue-details-page {
+  padding: 32px 48px;
 }
 
-.top-of-page{
-    margin-bottom: 24px;
+.top-of-page {
+  margin-bottom: 24px;
 }
 
-.venue-details-header{
-    color: #111;
-    font-family: "Poppins", sans-serif;
-    font-size: 40px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    margin-bottom: 8px;
+.venue-details-header {
+  color: #111;
+  font-family: "Poppins", sans-serif;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin-bottom: 8px;
 }
-.venue-details-loc{
-    color: #111;
-    font-family: "Inter", sans-serif;
-    font-size: 17px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-}
-
-.layout-venue-details{
-    display: flex;
-    gap: 24px;
-    align-items: flex-start;
-}
-.left-venue-details{
-    flex: 1;
-    max-width: 1000px;
-}
-.venue-card-info{
-    padding: 16px;
-    border-radius: 8px;
-    border: 1px solid rgba(10, 37, 64, 0.20);
-    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+.venue-details-loc {
+  color: #111;
+  font-family: "Inter", sans-serif;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
 
-.venue-details-image{
-    background: #D9D9D9;
-    border-radius: 8px;
-    height: 300px;
-    overflow: hidden;
-    margin-bottom: 16px;
+.layout-venue-details {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
 }
-.venue-details-image img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 8px;
+.left-venue-details {
+  flex: 1;
+  max-width: 1000px;
 }
-.description-venue-details{
-    font-size: 17px;
-    max-width: 1000px;
-    font-family: "Inter", sans-serif;
+.venue-card-info {
+  padding: 16px;
+  border-radius: 8px;
+  border: 1px solid rgba(10, 37, 64, 0.2);
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
 }
 
-
+.venue-details-image {
+  background: #d9d9d9;
+  border-radius: 8px;
+  height: 300px;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+.venue-details-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+.description-venue-details {
+  font-size: 17px;
+  max-width: 1000px;
+  font-family: "Inter", sans-serif;
+}
 
 .right-venue-details {
-    width: 432px;
+  width: 432px;
 }
-.booking-calender-card{
-    display: flex;
-    padding: 16px;
-    flex-direction: column;
-    gap: 16px;
-    border-radius: 8px;
-    border: 1px solid rgba(10, 37, 64, 0.20);
-    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+.booking-calender-card {
+  display: flex;
+  padding: 16px;
+  flex-direction: column;
+  gap: 16px;
+  border-radius: 8px;
+  border: 1px solid rgba(10, 37, 64, 0.2);
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
 }
 
 .booking-price {
-    font-size: 20px;
-    font-weight: 700;
-    font-family: "Poppins", sans-serif;
-    color: #111;
+  font-size: 20px;
+  font-weight: 700;
+  font-family: "Poppins", sans-serif;
+  color: #111;
 }
 
 .calender-placeholder-css {
-    height: 320px;
-    border-radius: 8px;
-    border: 1px solid rgba(10, 37, 64, 0.20);
+  height: 320px;
+  border-radius: 8px;
+  border: 1px solid rgba(10, 37, 64, 0.2);
 }
 
 .booking-button {
-    height: 44px;
-    border-radius: 8px;
-    background: #0A2540;
-    color: white;
-    font-weight: 600;
-    border: none;
-    cursor: pointer;
-    color: #FFF;
-    text-align: center;
-    font-family: Inter;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 600;
+  height: 44px;
+  border-radius: 8px;
+  background: #0a2540;
+  color: white;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  text-align: center;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
 }
-.booking-button:hover{
-    background: #103860;
-}
-
-.amenities-title{
-    font-size: 20px;
-    font-weight: 700;
-    font-family: "Poppins", sans-serif;
-    color: #111;
-    margin-top: 8px;
-    
+.booking-button:hover {
+  background: #103860;
 }
 
-.amenities-cont{
-    display: flex;
-    gap: 16px;
-    flex-wrap: wrap;
-    margin-top: 8px;
+.amenities-title {
+  font-size: 20px;
+  font-weight: 700;
+  font-family: "Poppins", sans-serif;
+  color: #111;
+  margin-top: 8px;
+}
+
+.amenities-cont {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 8px;
 }
 
 .amenity {
-    padding: 6px;
-    font-family: "Inter", sans-serif;
-    font-size: 14px;
-    font-weight: 500;
+  padding: 6px;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
 }
-

@@ -5,77 +5,77 @@
   flex-direction: column;
   align-items: center;
 }
-.register-center{
-    display: flex;
-    justify-content: center;
+.register-center {
+  display: flex;
+  justify-content: center;
 }
 
 .register-header {
-    align-self: flex-start;
-    margin-bottom: 32px;
+  align-self: flex-start;
+  margin-bottom: 32px;
 }
-.register-title{
-    font-family: "Poppins", sans-serif;
-    font-size: 40px;
-    font-weight: 700;
-    color: #111;
-    margin-bottom: 8px;
+.register-title {
+  font-family: "Poppins", sans-serif;
+  font-size: 40px;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 8px;
 }
 .register-subtitle {
-    font-family: "Inter", sans-serif;
-    font-size: 17px;
-    color: #111;
-    margin-bottom: 32px;
-    font-style: normal;
-    font-weight: 400;
+  font-family: "Inter", sans-serif;
+  font-size: 17px;
+  color: #111;
+  margin-bottom: 32px;
+  font-style: normal;
+  font-weight: 400;
 }
 
 .register-card {
-    width: 480px;
-    padding: 16px;
-    border-radius: 8px;
-    border: 1px solid rgba(10, 37, 64, 0.20);
-    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-    background: #fff;
+  width: 480px;
+  padding: 16px;
+  border-radius: 8px;
+  border: 1px solid rgba(10, 37, 64, 0.2);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  background: #fff;
 }
 
 .register-form {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
 .register-form label {
-    font-family: "Inter", sans-serif;
-    font-size: 14px;
-    font-weight: 600;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
 }
 
 .register-form input[type="text"],
 .register-form input[type="email"],
 .register-form input[type="password"] {
-    height: 40px;
-    padding: 10px 12px;
-    border-radius: 8px;
-    border: 1.5px solid rgba(10, 37, 64, 0.30);
-    font-family: "Inter", sans-serif;
-    font-size: 17px;
+  height: 40px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1.5px solid rgba(10, 37, 64, 0.3);
+  font-family: "Inter", sans-serif;
+  font-size: 17px;
 }
 
-.register-form small{
-    color: #6B7280;
-    font-family: "Inter", sans-serif;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+.register-form small {
+  color: #6b7280;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
 
 .account-type {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-top: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 6px;
 }
 .account-type label {
   display: flex;
@@ -87,36 +87,36 @@
 }
 
 .register-button {
-    height: 44px;
-    border-radius: 8px;
-    background: #0A2540;
-    color: white;
-    font-weight: 600;
-    border: none;
-    cursor: pointer;
-    color: #FFF;
-    text-align: center;
-    font-family: "Inter", sans-serif;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 600;
-    margin-top: 16px;
+  height: 44px;
+  border-radius: 8px;
+  background: #0a2540;
+  color: white;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  text-align: center;
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  margin-top: 16px;
 }
-.register-button:hover{
-    background: #103860;
+.register-button:hover {
+  background: #103860;
 }
 
 .login-link {
-    margin-top: 14px;
-    font-size: 14px;
-    color: #111;
-    font-family: "Inter", sans-serif;
-    font-style: normal;
-    font-weight: 500;
+  margin-top: 14px;
+  font-size: 14px;
+  color: #111;
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-weight: 500;
 }
 
 .login-link a {
-    color: #3377BC;;
-    font-weight: 600;
-    text-decoration: none;
+  color: #3377bc;
+  font-weight: 600;
+  text-decoration: none;
 }
