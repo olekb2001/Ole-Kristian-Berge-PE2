@@ -29,6 +29,10 @@ export async function registerTheUser(name, email, password, venueManager){
     //convert the resposne from json into javascript object 
     const json = await response.json();
 
+    if (!response.ok) {
+        throw new Error(json.errors?.[0]?.message || "Registration failed");
+    }
+
     //returning the data inside the "data" property
     return json.data;
 }

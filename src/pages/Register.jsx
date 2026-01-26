@@ -38,80 +38,83 @@ export default function Register(){
             setMessage("User registered successfully. You can now log in.")
         }
         catch(error){
-            setMessage("Something went wrong. Please try again");
+            setMessage(error.message);
         }
     }
     return(
         <div className="register-page">
-            <h1 className="register-title">Register</h1>
-            <p className="register-subtitle">Create an account to book venues or manage your own</p>
+            <div className="register-header">
+                <h1 className="register-title">Register</h1>
+                <p className="register-subtitle">Create an account to book venues or manage your own</p>
+            </div>
+            <div className="register-center">
+                <div className="register-card">
+                    <form onSubmit={handleSubmit} className="register-form">
 
-            <div className="register-card">
-                <form onSubmit={handleSubmit} className="register-form">
+                        {/*name input */}
+                        <label>Name</label>
+                        <input
+                            type="text"
+                            placeholder="Your full name"
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
+                        />
+                        {/*email input */}
+                        <label>Email</label>
+                        <input
+                            type="email"
+                            placeholder="name@stud.noroff.no"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                        />
+                        <small>Must be a stud.noroff.no email address</small>
 
-                    {/*name input */}
-                    <label>Name</label>
-                    <input
-                        type="text"
-                        placeholder="Your full name"
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
-                    />
-                    {/*email input */}
-                    <label>Email</label>
-                    <input
-                        type="email"
-                        placeholder="name@stud.noroff.no"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                    />
-                    <small>Must be a stud.noroff.no email address</small>
+                        {/*password input */}
+                        <label>Password</label>
+                        <input
+                            type="password"
+                            placeholder="********"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                        />
+                        <small>Minimum 8 characters</small>
 
-                    {/*password input */}
-                    <label>Password</label>
-                    <input
-                        type="password"
-                        placeholder="********"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                    />
-                    <small>Minimum 8 characters</small>
+                        {/*Account type selection */}
+                        <label>Account Type</label>
+                        <div className="account-type">
+                            <label>
+                                <input
+                                    type="radio"
+                                    name="accountType"
+                                    checked={!venueManager}
+                                    onChange={() => setVenueManager(false)}
+                                
+                                />
+                                Customer
+                            </label>
 
-                     {/*Account type selection */}
-                    <label>Account Type</label>
-                    <div className="account-type">
-                        <label>
-                            <input
-                                type="radio"
-                                name="accountType"
-                                checked={!venueManager}
-                                onChange={() => setVenueManager(false)}
-                            
-                            />
-                            Customer
-                        </label>
+                            <label>
+                                <input
+                                    type="radio"
+                                    name="accountType"
+                                    checked={venueManager}
+                                    onChange={() => setVenueManager(true)}
+        
+                                />
+                                Venue Manager
+                            </label>
+                        </div>
 
-                        <label>
-                            <input
-                                type="radio"
-                                name="accountType"
-                                checked={venueManager}
-                                onChange={() => setVenueManager(true)}
-    
-                            />
-                            Venue Manager
-                        </label>
-                    </div>
+                        {/* Submit button */}
+                        <button type="submit" className="register-button">Register</button>
 
-                    {/* Submit button */}
-                    <button type="submit" className="register-button">Register</button>
+                        {/*Link to login page */}
+                        <p className="login-link">Have an account? <Link to="/login">Login</Link></p>
 
-                    {/*Link to login page */}
-                    <p className="login-link">Have an account? <Link to="/login">Login</Link></p>
-
-                    {/* Message after submission */}
-                    {message && <p>{message}</p>}
-                </form>
+                        {/* Message after submission */}
+                        {message && <p>{message}</p>}
+                    </form>
+                </div>
             </div>
         </div>
     )
