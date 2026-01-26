@@ -1,5 +1,7 @@
 import { useState } from "react"
 import { registerTheUser } from "../api/auth"
+import { Link } from "react-router-dom";
+import "./Register.css";
 /*
 this page allowes new users to create an account.
 
@@ -46,6 +48,8 @@ export default function Register(){
 
             <div className="register-card">
                 <form onSubmit={handleSubmit} className="register-form">
+
+                    {/*name input */}
                     <label>Name</label>
                     <input
                         type="text"
@@ -53,7 +57,7 @@ export default function Register(){
                         value={name}
                         onChange={(e) => setName(e.target.value)}
                     />
-
+                    {/*email input */}
                     <label>Email</label>
                     <input
                         type="email"
@@ -63,6 +67,7 @@ export default function Register(){
                     />
                     <small>Must be a stud.noroff.no email address</small>
 
+                    {/*password input */}
                     <label>Password</label>
                     <input
                         type="password"
@@ -72,6 +77,7 @@ export default function Register(){
                     />
                     <small>Minimum 8 characters</small>
 
+                     {/*Account type selection */}
                     <label>Account Type</label>
                     <div className="account-type">
                         <label>
@@ -96,13 +102,17 @@ export default function Register(){
                             Venue Manager
                         </label>
                     </div>
-                    <button type="submit" className="register-button">Register</button>
-                    <p className="login-link">Have an account? <a href = "/login">Login</a></p>
 
+                    {/* Submit button */}
+                    <button type="submit" className="register-button">Register</button>
+
+                    {/*Link to login page */}
+                    <p className="login-link">Have an account? <Link to="/login">Login</Link></p>
+
+                    {/* Message after submission */}
                     {message && <p>{message}</p>}
                 </form>
             </div>
         </div>
     )
-    
 }
