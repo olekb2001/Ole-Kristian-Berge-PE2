@@ -1,14 +1,26 @@
 import { useState } from "react"
 import { registerTheUser } from "../api/auth"
+/*
+this page allowes new users to create an account.
+
+the form on this page collects the users 
+-name
+-email
+-password 
+-and whether you are a venue manager or not
+
+when the form is submitted, the data is sent to the Noroff api 
+using the registerTheUser function from api/auth.
+*/
 
 export default function Register(){
     // here i store form inputs in state
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
-    const [password, setPassord] = useState("");
+    const [password, setPassword] = useState("");
     const [venueManager, setVenueManager] = useState(false);
 
-    //message shows after submit
+    //message shows after submitting the form
     const [message, setMessage] = useState("");
 
     // this runs when the form is submitted
@@ -38,29 +50,54 @@ export default function Register(){
                         onChange={(e) => setName(e.target.value)}
                     />
 
-                    <label>Name</label>
+                    <label>Email</label>
                     <input
-                        type="text"
-                        placeholder="Your full name"
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
+                        type="email"
+                        placeholder="name@stud.noroff.no"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
                     />
+                    <small>Must be a stud.noroff.no email address</small>
 
-                
+                    <label>Password</label>
+                    <input
+                        type="password"
+                        placeholder="********"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                    />
+                    <small>Minimum 8 characters</small>
 
+                    <label>Account Type</label>
+                    <div className="account-type">
+                        <label>
+                            <input
+                                type="radio"
+                                name="accountType"
+                                checked={!venueManager}
+                                onChange={() => setVenueManager(false)}
+                            
+                            />
+                            Customer
+                        </label>
 
+                        <label>
+                            <input
+                                type="radio"
+                                name="accountType"
+                                checked={venueManager}
+                                onChange={() => setVenueManager(true)}
+    
+                            />
+                            Venue Manager
+                        </label>
+                    </div>
+                    <button type="submit" className="register-button">Register</button>
+                    <p className="login-link">Have an account? <a href = "/login">Login</a></p>
 
-
-
+                    {message && <p>{message}</p>}
                 </form>
-
-
-
             </div>
-
-
-
-
         </div>
     )
     
