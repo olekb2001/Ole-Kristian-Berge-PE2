@@ -23,8 +23,12 @@ export default function Register(){
     //message shows after submitting the form
     const [message, setMessage] = useState("");
 
-    // this runs when the form is submitted
-    async function fixSubmit(event){
+    /*
+    this function runs when the form is submitted.
+    it prevents the page from reloading and sends data to the api, 
+    and shows a sucsess message or error message if something goes wrong.
+    */
+    async function handleSubmit(event){
         event.preventDefault();
 
         try{
@@ -41,7 +45,7 @@ export default function Register(){
             <p className="register-subtitle">Create an account to book venues or manage your own</p>
 
             <div className="register-card">
-                <form onSubmit={fixSubmit} className="register-form">
+                <form onSubmit={handleSubmit} className="register-form">
                     <label>Name</label>
                     <input
                         type="text"
