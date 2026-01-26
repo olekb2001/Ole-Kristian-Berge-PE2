@@ -40,21 +40,24 @@ export default function VenueDetails() {
         <div className="layout-venue-details">
             {/*left side of page*/}
             <div className="left-venue-details">
-                <div className="venue-details-image">
-                    {/* displays image if it exists*/}
-                    {venue.media?.[0]?.url && (<img src = {venue.media[0].url} alt={venue.name}/>)}
-                </div>
-                
-                <p className="description-venue-details"> {venue.description} </p>
+                <div className="venue-card-info">
+                    <div className="venue-details-image">
+                        {/* displays image if it exists*/}
+                        {venue.media?.[0]?.url && (<img src = {venue.media[0].url} alt={venue.name}/>)}
+                    </div>
+                    
+                    <p className="description-venue-details"> {venue.description} </p>
 
-                {/* amneties*/}
-                <h2 className="amenities-title">Amenities</h2>
+                    {/* amneties*/}
+                    <h2 className="amenities-title">Amenities</h2>
 
-                <div className="amenities-cont">
-                    {venue.meta?.wifi && <span className="amenity">✓ WiFi</span>}
-                    {venue.meta?.wifi && <span className="amenity">✓ WiFi</span>}
-                    {venue.meta?.wifi && <span className="amenity">✓ WiFi</span>}
-                    {venue.meta?.wifi && <span className="amenity">✓ WiFi</span>}
+                    <div className="amenities-cont">
+                        {/* items within the div */}
+                        {venue.meta?.wifi && <span className="amenity">✓ WiFi</span>}
+                        {venue.meta?.parking && <span className="amenity">✓ Parking</span>}
+                        {venue.meta?.pets && <span className="amenity">✓ Pets allowed</span>}
+                        {venue.meta?.breakfast && <span className="amenity">✓ Breakfast included</span>}
+                    </div>
                 </div>
             </div>
             {/*right side og page*/}
