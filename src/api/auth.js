@@ -7,7 +7,6 @@ this function is responsible for regestering a new user in the noroffs api syste
 It sends the required user information: name, email, password and whether the user
 wants to be a venue manager, to the /register endpoint so the user can be created
 before they are able to log in.
-
 */
 
 export async function registerTheUser(name, email, password, venueManager){
@@ -38,7 +37,45 @@ export async function registerTheUser(name, email, password, venueManager){
     return json.data;
 }
 
-export async function loginTheUser(){
-    
+
+
+
+
+
+/*
+function for logging in existing user
+
+this sends a post request to the login endpoint with the email and password.
+
+if details are correct then the api returns user data including access token. 
+this token is important because it proves the user 
+is authenticated and will be used later when making protected requests.
+*/
+export async function loginTheUser(email, password){
+    const response = await fetch(`${API_AUTH}/login`, {
+        method: "POST",
+
+        // tells the api that we are sending json data
+        headers: { "Content-Type": "application/json" },
+
+         // convert the email and password into json before sending
+        body: JSON.stringify({
+            email,
+            password
+        })
+    });
+
+    //convert the api response from json into a javascript object
+    const json = await response.json();
+
+    /*
+    fetch does not automatically throw an error if login fails,
+    so we must manually check if the response is ok.
+    if not, we throw the error from the api so it can be shown on the page.
+    */
+    if(!response.ok){
+        throw new Error(json.errors?.[0]?.message || "Login Failed")
+    }
+    return json.data;
 }
 
