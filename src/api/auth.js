@@ -9,6 +9,7 @@ wants to be a venue manager, to the /register endpoint so the user can be create
 before they are able to log in.
 
 */
+
 export async function registerTheUser(name, email, password, venueManager){
 
     //this sends a post request to the /register endpoing with user details
@@ -35,5 +36,9 @@ export async function registerTheUser(name, email, password, venueManager){
 
     //returning the data inside the "data" property
     return json.data;
+}
+
+export async function loginTheUser(){
+    
 }
 
