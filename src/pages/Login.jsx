@@ -35,6 +35,7 @@ export default function Login() {
 
       //redirect to the home paghe
       navigate("/");
+      window.location.reload();
     } catch (error) {
       setMessage(error.message);
     }
@@ -66,7 +67,7 @@ export default function Login() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
-            <button type="submit" className="register-buttom">
+            <button type="submit" className="register-button">
               Login
             </button>
             <p className="login-link">
