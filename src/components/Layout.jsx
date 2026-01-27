@@ -1,28 +1,29 @@
 /*
 layout wraps all pages in the app 
-
 navbar and the footer stay consistent across the routes.
 outlet renders the page that matches the current url.
 */
-
 import { Outlet } from "react-router-dom";
 import Navbar from "./Navbar";
+import { useEffect, useState } from "react";
 
 export default function Layout() {
-  //here we get the user obj that was saved during the login,
-  //if there are not any user in localstorage this will be null
-  const storedUser = JSON.parse(localStorage.getItem("user"));
+  // state that holds the user from localStorage
+  const [storedUser, setStoredUser] = useState(null);
 
-  /*
-    if storedUser exist, the user is logged in.
-    if its null the user is logged out.
-    */
+  /* 
+  when layout loads, we read the user from localStorage and save it 
+  into a state. this allows react to re-render when login og a logout happens
+  */
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem("user"));
+    setStoredUser(user);
+  }, []);
+
+  //if storedUser exist you are logged in
   const isLoggedIn = !!storedUser;
 
-  /*
-    the api only includes "venueManager" if the user is a 
-    manager. if it exists you are a manager, if not you are a customer
-   */
+  // if venuemanager exists you are a manager, else customer
   const role = storedUser?.venueManager ? "manager" : "customer";
 
   return (
