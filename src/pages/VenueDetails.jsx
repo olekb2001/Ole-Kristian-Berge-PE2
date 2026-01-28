@@ -16,12 +16,16 @@ export default function VenueDetails() {
 
   //this holds the venue returned from the api
   const [venue, setVenue] = useState(null);
+
+  //stores the dates the user wants to book
+  const [dateFrom, setDateFrom] = useState("");
+  const [dateTo, setDateTo] = useState("");
+
   useEffect(() => {
     //this fetches the venue that matches the id
     async function loadTheVenue() {
       const dataRecieved = await findVenueId(id);
       setVenue(dataRecieved);
-      console.log(dataRecieved);
     }
     loadTheVenue();
   }, [id]);
@@ -29,6 +33,24 @@ export default function VenueDetails() {
   //while the data is loading this shows
   if (!venue) {
     return <p>Loading Venue...</p>;
+  }
+
+  /* 
+    this function checks if a spesific date is already booked for this venue.
+
+    it loops through 
+
+
+
+  */
+  function isTheDateAlreadyBooked(date){
+    return venue.bookings.some((booking) => {
+      const bookedFrom = new Date(booking.dateFrom);
+      const bookedTo = new date(booking.dateTo);
+      const dateSelected = new date(date);
+
+      return selected >= bookedFrom && selected <= bookedTo;
+    })
   }
 
   return (
@@ -76,7 +98,19 @@ export default function VenueDetails() {
             <p className="booking-price">${venue.price} / night</p>
 
             {/*placheolder for the calender*/}
-            <div className="calender-placeholder-css"></div>
+            <label>From</label>
+            <input
+              type="date"
+              value={dateFrom}
+              onChange={(e) => setDateFrom(e.target.value)}
+            />
+
+            <label>To</label>
+            <input
+              type="date"
+              value={dateTo}
+              onChange={(e) => setDateTo(e.target.value)}
+            />
 
             <button className="booking-button">Book Now</button>
           </div>
