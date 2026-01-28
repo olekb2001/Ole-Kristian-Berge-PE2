@@ -27,7 +27,7 @@ export async function getVenues() {
 // this is used on the VenueDetails Page.
 export async function findVenueId(id) {
     try{
-        const response = await fetch(`${API_URL}/venues/${id}`);
+        const response = await fetch(`${API_URL}/venues/${id}?_bookings=true`);
         const json = await response.json();
         return json.data;
     }

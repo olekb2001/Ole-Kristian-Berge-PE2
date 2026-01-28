@@ -21,6 +21,7 @@ export default function VenueDetails() {
     async function loadTheVenue() {
       const dataRecieved = await findVenueId(id);
       setVenue(dataRecieved);
+      console.log(dataRecieved);
     }
     loadTheVenue();
   }, [id]);

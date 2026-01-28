@@ -52,7 +52,7 @@ this token is important because it proves the user
 is authenticated and will be used later when making protected requests.
 */
 export async function loginTheUser(email, password){
-    const response = await fetch(`${API_AUTH}/login`, {
+    const response = await fetch(`${API_AUTH}/login?_holidaze=true`, {
         method: "POST",
 
         // tells the api that we are sending json data
