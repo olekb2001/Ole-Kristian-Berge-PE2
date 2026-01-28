@@ -38,19 +38,20 @@ export default function VenueDetails() {
   /* 
     this function checks if a spesific date is already booked for this venue.
 
-    it loops through 
+    it loops through all the bookigns the venue has, and compares the 
+    date the user picked with the date range of each bookings.
 
-
-
+    if the selected date falls between dateFrom and dateTo, it means the venue is alrewady
+    booked on that date
   */
-  function isTheDateAlreadyBooked(date){
+  function isTheDateAlreadyBooked(date) {
     return venue.bookings.some((booking) => {
       const bookedFrom = new Date(booking.dateFrom);
-      const bookedTo = new date(booking.dateTo);
-      const dateSelected = new date(date);
+      const bookedTo = new Date(booking.dateTo);
+      const dateSelected = new Date(date);
 
-      return selected >= bookedFrom && selected <= bookedTo;
-    })
+      return dateSelected >= bookedFrom && dateSelected <= bookedTo;
+    });
   }
 
   return (
