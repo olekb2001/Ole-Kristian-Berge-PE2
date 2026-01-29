@@ -1,3 +1,12 @@
+/* 
+This file contains api calls related to the logged in user's profile.
+
+Here we fetch all bookings that the user has made.
+
+We include _venue=true so we also get the venue details
+(image, name, price etc) together with the booking.
+*/
+
 const API_URL = "https://v2.api.noroff.dev/holidaze";
 
 export async function getMyBookings(){
@@ -5,9 +14,26 @@ export async function getMyBookings(){
     const user = JSON.parse(localStorage.getItem("user"));
 
     if(!user){
-        throw new error("You must be logged in");
+        throw new Error("You must be logged in");
     }
 
     const accessToken = user.accessToken;
     const name = user.name;
+
+    const API_KEY = "8b715995-ffb8-4b82-9fb9-20a5d580c2d2";
+
+    const response = await fetch(`${API_URL}/profiles/${name}/bookings?_venue=true`,{
+        headers:{
+            Authorization: `Bearer ${accessToken}`,
+            "X-Noroff-API-Key": API_KEY,
+        },
+
+    });
+    const json = await response.json();
+
+    if(!response.ok){
+        throw new Error(json.errors?.[0]?.message || "Failed to fetch bookings");
+    }
+    return json.data;
+
 }
