@@ -50,11 +50,7 @@ export default function VenueDetails() {
     const selectedStart = new Date(dateFrom);
     const selectedEnd = new Date(dateTo);
 
-    /*
-    we loop through every booking the venue already has.
-    .some() will return true as soon as it finds one booking
-    that overlaps with the selected range.
-    */
+    // Check if any existing booking overlaps with the selected range
     return venue.bookings.some((booking) => {
       //convert the booking's dates into date objects
       const bookedStart = new Date(booking.dateFrom);
@@ -65,9 +61,9 @@ export default function VenueDetails() {
   }
 
   async function handleBooking(){
-    // here i make sure user picks both dates 
+    // Ensure both dates are selected
     if(!dateFrom || !dateTo){
-      setBookingMessage("Please selevt both dates")
+      setBookingMessage("Please select both dates")
       return;
     }
     // check for overlap with existing bookings
