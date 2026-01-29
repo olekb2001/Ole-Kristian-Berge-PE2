@@ -20,12 +20,14 @@ export default function VenueDetails() {
   //stores the dates the user wants to book
   const [dateFrom, setDateFrom] = useState("");
   const [dateTo, setDateTo] = useState("");
+  const [bookingMessage, setBookingMessage] = useState("");
 
   useEffect(() => {
     //this fetches the venue that matches the id
     async function loadTheVenue() {
       const dataRecieved = await findVenueId(id);
       setVenue(dataRecieved);
+      console.log(dataRecieved);
     }
     loadTheVenue();
   }, [id]);
@@ -46,10 +48,16 @@ export default function VenueDetails() {
   */
   function isTheDateAlreadyBooked(date) {
     return venue.bookings.some((booking) => {
+      //convert the booking dates from string into real Date objects
       const bookedFrom = new Date(booking.dateFrom);
       const bookedTo = new Date(booking.dateTo);
-      const dateSelected = new Date(date);
 
+      // convert the selected date from the input into a Date object
+      const dateSelected = new Date(date);
+      /*
+      if the selected date is greater than or equal to the start of a booking
+      and less than or equal to the end of a booking, then that date is already booked
+      */
       return dateSelected >= bookedFrom && dateSelected <= bookedTo;
     });
   }
@@ -103,15 +111,36 @@ export default function VenueDetails() {
             <input
               type="date"
               value={dateFrom}
-              onChange={(e) => setDateFrom(e.target.value)}
+              onChange={(e) => {
+                const chosenDate = e.target.value;
+                setDateFrom(chosenDate);
+
+                if (isTheDateAlreadyBooked(chosenDate)){
+                  setBookingMessage("This date is already booked. Please Choose another.");
+                }
+                else{
+                  setBookingMessage("");
+                }
+              }}
             />
 
             <label>To</label>
             <input
               type="date"
               value={dateTo}
-              onChange={(e) => setDateTo(e.target.value)}
+              onChange={(e) => {
+                const chosenDate = e.target.value;
+                setDateTo(chosenDate);
+
+                if(isTheDateAlreadyBooked(chosenDate)){
+                  setBookingMessage("This date is already booked. Please Choose another.")
+                }
+                else{
+                  setBookingMessage("");
+                }
+              }}
             />
+            {bookingMessage && <p>{bookingMessage}</p>}
 
             <button className="booking-button">Book Now</button>
           </div>
