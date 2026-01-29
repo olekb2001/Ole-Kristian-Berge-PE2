@@ -38,29 +38,46 @@ export default function VenueDetails() {
   }
 
   /* 
-    this function checks if a spesific date is already booked for this venue.
+    this function checks if the range of dates the user wants to book
+    overlaps with any existing bookings for this venue.
 
-    it loops through all the bookigns the venue has, and compares the 
-    date the user picked with the date range of each bookings.
-
-    if the selected date falls between dateFrom and dateTo, it means the venue is alrewady
-    booked on that date
+    instead of checking a single day, this checks the whole period
+    from the selected start date to the selected end date.
   */
-  function isTheDateAlreadyBooked(date) {
-    return venue.bookings.some((booking) => {
-      //convert the booking dates from string into real Date objects
-      const bookedFrom = new Date(booking.dateFrom);
-      const bookedTo = new Date(booking.dateTo);
+  function isTheRangeAlreadyBooked(dateFrom, dateTo) {
+    // convert the selected input dates into real Date objects
+    const selectedStart = new Date(dateFrom);
+    const selectedEnd = new Date(dateTo);
 
-      // convert the selected date from the input into a Date object
-      const dateSelected = new Date(date);
-      /*
-      if the selected date is greater than or equal to the start of a booking
-      and less than or equal to the end of a booking, then that date is already booked
-      */
-      return dateSelected >= bookedFrom && dateSelected <= bookedTo;
+    /*
+    we loop through every booking the venue already has.
+    .some() will return true as soon as it finds one booking
+    that overlaps with the selected range.
+    */
+    return venue.bookings.some((booking) => {
+      //convert the booking's dates into date objects
+      const bookedStart = new Date(booking.dateFrom);
+      const bookedEnd = new Date(booking.dateTo);
+
+      return selectedStart <= bookedEnd && selectedEnd >= bookedStart;
     });
   }
+
+  function handleBooking(){
+    // here i make sure user picks both dates 
+    if(!dateFrom || !dateTo){
+      setBookingMessage("Please selevt both dates")
+      return;
+    }
+    // check for overlap with existing bookings
+    if(isTheRangeAlreadyBooked(dateFrom, dateTo)){
+      setBookingMessage("These dates are already booked. Please choose others");
+      return;
+    }
+    setBookingMessage("Dates are available! You can book this venue.")
+  }
+
+
 
   return (
     <div className="venue-details-page">
@@ -114,13 +131,6 @@ export default function VenueDetails() {
               onChange={(e) => {
                 const chosenDate = e.target.value;
                 setDateFrom(chosenDate);
-
-                if (isTheDateAlreadyBooked(chosenDate)){
-                  setBookingMessage("This date is already booked. Please Choose another.");
-                }
-                else{
-                  setBookingMessage("");
-                }
               }}
             />
 
@@ -131,18 +141,11 @@ export default function VenueDetails() {
               onChange={(e) => {
                 const chosenDate = e.target.value;
                 setDateTo(chosenDate);
-
-                if(isTheDateAlreadyBooked(chosenDate)){
-                  setBookingMessage("This date is already booked. Please Choose another.")
-                }
-                else{
-                  setBookingMessage("");
-                }
               }}
             />
             {bookingMessage && <p>{bookingMessage}</p>}
 
-            <button className="booking-button">Book Now</button>
+            <button className="booking-button" onClick={handleBooking}>Book Now</button>
           </div>
         </div>
       </div>
