@@ -10,6 +10,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { findVenueId } from "../api/venues";
 import "./VenueDetails.css";
+import { createBooking } from "../api/bookings";
 
 export default function VenueDetails() {
   const { id } = useParams();
@@ -63,7 +64,7 @@ export default function VenueDetails() {
     });
   }
 
-  function handleBooking(){
+  async function handleBooking(){
     // here i make sure user picks both dates 
     if(!dateFrom || !dateTo){
       setBookingMessage("Please selevt both dates")
@@ -74,7 +75,13 @@ export default function VenueDetails() {
       setBookingMessage("These dates are already booked. Please choose others");
       return;
     }
-    setBookingMessage("Dates are available! You can book this venue.")
+    try{
+      await createBooking(dateFrom, dateTo, venue.id);
+      setBookingMessage("Booking successfull");
+    }
+    catch(error){
+      setBookingMessage(error.message);
+    }
   }
 
 

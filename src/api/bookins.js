@@ -1,2 +1,0 @@
-/* this file includes api calls related to creating bookings
-*/
