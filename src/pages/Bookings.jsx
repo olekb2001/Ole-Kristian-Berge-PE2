@@ -64,7 +64,7 @@ export default function Bookings() {
             </div>
             {/* price + status*/}
             <div className="booking-meta">
-              <p className="booking-price">${booking.venue?.price} / night</p>
+              <p className="bookings-price">${booking.venue?.price} / night</p>
               <p className="booking-status">Upcoming</p>
             </div>
           </div>
