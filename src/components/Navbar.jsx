@@ -9,8 +9,18 @@ import { Link } from "react-router-dom";
 import logo from "../assets/Holidaze-logo-desktop.png";
 import "./Navbar.css";
 import { useState, useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Navbar({ isLoggedIn, role }) {
+  const navigate = useNavigate();
+  function handleTheLogout() {
+    // remove login
+    localStorage.removeItem("user");
+    //go to homepage
+    navigate("/");
+    // and force the navbar to update
+    window.location.reload();
+  }
   //this controls the dropdown visibility
   const [isAvatarMenuOpen, setIsAvatarMenuOpen] = useState(false);
   // reference to the avatar container
@@ -88,7 +98,9 @@ export default function Navbar({ isLoggedIn, role }) {
                 </div>
 
                 <div className="dropdown-item">
-                  <Link to="/logout">Logout</Link>
+                  <button onClick={handleTheLogout} className="logout-button">
+                    Logout
+                  </button>
                 </div>
               </div>
             )}
