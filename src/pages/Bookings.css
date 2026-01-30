@@ -103,13 +103,3 @@
   cursor: pointer;
 }
 
-/* hover effect */
-.booking-card-link:hover .booking-card {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 14px rgba(0, 0, 0, 0.23);
-}
-/* active*/
-.booking-card-link:active .booking-card {
-  transform: translateY(0px);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-}
