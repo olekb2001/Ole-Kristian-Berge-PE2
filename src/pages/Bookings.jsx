@@ -1,11 +1,15 @@
 import { useEffect, useState } from "react";
 import { getMyBookings } from "../api/profile";
+import "./Bookings.css";
 
 export default function Bookings() {
+  //holds all bookings fetched from the API
   const [bookings, setBookings] = useState([]);
+   // holds any error message if the request fails
   const [error, setError] = useState("");
 
   useEffect(() => {
+    // fetch bookings when the page loads
     async function loadTheBookings() {
       try {
         const data = await getMyBookings();
@@ -16,17 +20,23 @@ export default function Bookings() {
     }
     loadTheBookings();
   }, []);
+
+  // show error if something went wrong
   if (error) {
     return <p>{error}</p>;
   }
+
+  // if user has no bookings yet
   if (bookings.length === 0) {
     return <p>No bookings yet</p>;
   }
   return (
-    <div>
-      <h1>My Bookings</h1>
-      <p>Here are your upcoming stays</p>
+    <div className="bookings-page">
+      <h1 className="bookings-title">My Bookings</h1>
+      <p className="bookings-subtitle">Here are your upcoming stays</p>
+        {/*loop through all bookings and display one card per booking */}
       {bookings.map((booking) => {
+        // format the dates into something readable
         const from = new Date(booking.dateFrom).toLocaleDateString();
         const to = new Date(booking.dateTo).toLocaleDateString();
 
