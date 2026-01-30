@@ -70,3 +70,9 @@
 .venue-button:hover {
   opacity: 0.9;
 }
+
+.venue-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}

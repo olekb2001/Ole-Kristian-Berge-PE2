@@ -21,6 +21,10 @@ export async function createBooking(dateFrom, dateTo, venueId) {
   // get the logged in user froma localStorage
   const user = JSON.parse(localStorage.getItem("user"));
 
+  if(!user){
+    throw new Error("You must be logged in in to make a bookings");
+  }
+
   // get access token from the user
   const accessToken = user.accessToken;
 
