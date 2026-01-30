@@ -60,27 +60,24 @@ export default function VenueDetails() {
     });
   }
 
-  async function handleBooking(){
+  async function handleBooking() {
     // Ensure both dates are selected
-    if(!dateFrom || !dateTo){
-      setBookingMessage("Please select both dates")
+    if (!dateFrom || !dateTo) {
+      setBookingMessage("Please select both dates");
       return;
     }
     // check for overlap with existing bookings
-    if(isTheRangeAlreadyBooked(dateFrom, dateTo)){
+    if (isTheRangeAlreadyBooked(dateFrom, dateTo)) {
       setBookingMessage("These dates are already booked. Please choose others");
       return;
     }
-    try{
+    try {
       await createBooking(dateFrom, dateTo, venue.id);
       setBookingMessage("Booking successfull");
-    }
-    catch(error){
+    } catch (error) {
       setBookingMessage(error.message);
     }
   }
-
-
 
   return (
     <div className="venue-details-page">
@@ -93,7 +90,7 @@ export default function VenueDetails() {
       <div className="layout-venue-details">
         {/*left side of page*/}
         <div className="left-venue-details">
-          <div className="venue-card-info">
+          <div className="venue-card-info card-hover">
             <div className="venue-details-image">
               {/* displays image if it exists*/}
               {venue.media?.[0]?.url && (
@@ -123,7 +120,7 @@ export default function VenueDetails() {
         </div>
         {/*right side og page*/}
         <div className="right-venue-details">
-          <div className="booking-calender-card">
+          <div className="booking-calender-card card-hover">
             <p className="booking-price">${venue.price} / night</p>
 
             {/*placheolder for the calender*/}
@@ -148,7 +145,9 @@ export default function VenueDetails() {
             />
             {bookingMessage && <p>{bookingMessage}</p>}
 
-            <button className="booking-button" onClick={handleBooking}>Book Now</button>
+            <button className="booking-button" onClick={handleBooking}>
+              Book Now
+            </button>
           </div>
         </div>
       </div>

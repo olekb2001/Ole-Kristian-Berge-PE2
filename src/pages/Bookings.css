@@ -30,6 +30,9 @@
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
   margin-bottom: 16px;
   align-items: stretch;
+
+  /* animation*/
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 /*image left */
 .booking-image {
@@ -91,4 +94,22 @@
   font-family: "Inter", sans-serif;
   font-size: 14px;
   font-weight: 500;
+}
+
+.booking-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  cursor: pointer;
+}
+
+/* hover effect */
+.booking-card-link:hover .booking-card {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 14px rgba(0, 0, 0, 0.23);
+}
+/* active*/
+.booking-card-link:active .booking-card {
+  transform: translateY(0px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }

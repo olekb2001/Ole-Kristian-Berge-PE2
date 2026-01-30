@@ -30,12 +30,12 @@ export default function Navbar({ isLoggedIn, role }) {
         setIsAvatarMenuOpen(false);
       }
     }
-     // listen for clicks on the whole document
+    // listen for clicks on the whole document
     document.addEventListener("mousedown", fixClickOutside);
     // remove listener whn navbar unmounts
     return () => {
       document.removeEventListener("mousedown", fixClickOutside);
-    }
+    };
   }, []);
 
   return (
