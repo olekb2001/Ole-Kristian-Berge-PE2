@@ -7,19 +7,23 @@ export default function Profile() {
 
   return (
     <div className="profile-page">
-      <div className="profile-header">
+      <div className="profile-top">
         <h1 className="profile-title">My Profile</h1>
-        <p className="profile-undertitle">Make profile changes etc</p>
+        <p className="profile-subtitle">Manage your profile information</p>
       </div>
       <div className="profile-card">
-        {user.avatar && (
-          <img src={user.avatar} alt={user.name} className="profile-avatar" />
-        )}
-        <h2>{user.name}</h2>
-        <p>{user.email}</p>
-        <p>Role: {user.venueManager ? "Venue Manager" : "Customer"}</p>
+        <div className="profile-avatar">
+          {user.avatar && (
+            <img src={user.avatar} alt={user.name}/>
+          )}
+        </div>
+        <div className="profile-info">
+          <h2>{user.name}</h2>
+          <p>{user.email}</p>
+          <p>Role: {user.venueManager ? "Venue Manager" : "Customer"}</p>
 
-        <button>Update Avatar</button>
+          <button className="profile-button">Update Avatar</button>
+        </div>
       </div>
     </div>
   );
