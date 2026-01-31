@@ -1,3 +1,5 @@
+import "./Profile.css";
+
 export default function Profile() {
   const user = JSON.parse(localStorage.getItem("user"));
 
@@ -13,9 +15,7 @@ export default function Profile() {
       </div>
       <div className="profile-card">
         <div className="profile-avatar">
-          {user.avatar && (
-            <img src={user.avatar} alt={user.name}/>
-          )}
+          {user.avatar && <img src={user.avatar} alt={user.name} />}
         </div>
         <div className="profile-info">
           <h2>{user.name}</h2>
