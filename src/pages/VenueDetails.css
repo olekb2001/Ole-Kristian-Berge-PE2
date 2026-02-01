@@ -80,9 +80,20 @@
 }
 
 .calender-placeholder-css {
-  height: 320px;
+  height: 180px;
+  overflow-y: auto;
   border-radius: 8px;
   border: 1px solid rgba(10, 37, 64, 0.2);
+  padding: 10px;
+  background: #f9fafb;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+}
+.calender-placeholder-css p {
+  padding: 6px 8px;
+  margin-bottom: 6px;
+  background: #ffe4e6;
+  border-radius: 6px;
 }
 
 .booking-button {
@@ -133,4 +144,11 @@
 .booking-calender-card label {
   margin-bottom: 4px;
   font-weight: 600;
+}
+.unavailable-title {
+  font-family: "Poppins", sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 8px;
 }

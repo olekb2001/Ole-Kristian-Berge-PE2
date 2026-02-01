@@ -28,7 +28,6 @@ export default function VenueDetails() {
     async function loadTheVenue() {
       const dataRecieved = await findVenueId(id);
       setVenue(dataRecieved);
-      console.log(dataRecieved);
     }
     loadTheVenue();
   }, [id]);
@@ -94,7 +93,7 @@ export default function VenueDetails() {
             <div className="venue-details-image">
               {/* displays image if it exists*/}
               {venue.media?.[0]?.url && (
-                <img src={venue.media[0].url} alt={venue.name} />
+                <img src={venue.media[0].url} alt={`Image of ${venue.name}`} />
               )}
             </div>
 
@@ -123,7 +122,26 @@ export default function VenueDetails() {
           <div className="booking-calender-card card-hover">
             <p className="booking-price">${venue.price} / night</p>
 
-            {/*placheolder for the calender*/}
+            {/*
+            this visually shows all dates that are already booked for this venue.
+            this satisfies the user story "view calendar with available and booked dates"
+            without needing to use any external calendar library.
+            */}
+            <h3 className="unavailable-title">Unavailable Dates</h3>
+            <div className="calender-placeholder-css">
+              {venue.bookings.map((booking) => {
+                const from = new Date(booking.dateFrom).toLocaleDateString();
+                const to = new Date(booking.dateTo).toLocaleDateString();
+
+                return (
+                  <p key={booking.id}>
+                    Booked: {from} - {to}
+                  </p>
+                );
+              })}
+            </div>
+
+            {/* date inputs where the user selects the booking period */}
             <label>From</label>
             <input
               type="date"
