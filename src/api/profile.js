@@ -73,3 +73,14 @@ export async function updateAvatar(avatarUrl) {
   }
   return json.data;
 }
+
+
+export async function getProfile(){
+  const user = JSON.parse(localStorage.getItem("user"));
+
+  if(!user){
+    throw new Error("You must be logged in");
+  }
+
+  const API_KEY = = "8b715995-ffb8-4b82-9fb9-20a5d580c2d2";
+}
