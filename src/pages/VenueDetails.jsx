@@ -11,6 +11,7 @@ import { useParams } from "react-router-dom";
 import { findVenueId } from "../api/venues";
 import "./VenueDetails.css";
 import { createBooking } from "../api/bookings";
+import { formatDate } from "../utils/formatDate";
 
 export default function VenueDetails() {
   const { id } = useParams();
@@ -130,8 +131,9 @@ export default function VenueDetails() {
             <h3 className="unavailable-title">Unavailable Dates</h3>
             <div className="calender-placeholder-css">
               {venue.bookings.map((booking) => {
-                const from = new Date(booking.dateFrom).toLocaleDateString();
-                const to = new Date(booking.dateTo).toLocaleDateString();
+                // format dates using my helper so they always dd/mm/yyyy
+                const from = formatDate(booking.dateFrom);
+                const to = formatDate(booking.dateTo);
 
                 return (
                   <p key={booking.id}>

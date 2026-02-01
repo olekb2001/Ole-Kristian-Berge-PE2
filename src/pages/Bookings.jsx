@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { getMyBookings } from "../api/profile";
 import "./Bookings.css";
 import { Link } from "react-router-dom";
+import { formatDate } from "../utils/formatDate";
 
 export default function Bookings() {
   //holds all bookings fetched from the API
@@ -45,9 +46,9 @@ export default function Bookings() {
       {bookings
         .filter((booking) => new Date(booking.dateTo) > new Date())
         .map((booking) => {
-          // format the dates into something readable
-          const from = new Date(booking.dateFrom).toLocaleDateString();
-          const to = new Date(booking.dateTo).toLocaleDateString();
+          // format the dates using our helper so they are always dd/mm/yyyy
+          const from = formatDate(booking.dateFrom);
+          const to = formatDate(booking.dateTo);
 
           return (
             <Link
