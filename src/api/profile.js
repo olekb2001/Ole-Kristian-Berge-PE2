@@ -82,5 +82,7 @@ export async function getProfile(){
     throw new Error("You must be logged in");
   }
 
-  const API_KEY = = "8b715995-ffb8-4b82-9fb9-20a5d580c2d2";
+  const API_KEY = "8b715995-ffb8-4b82-9fb9-20a5d580c2d2";
+
+  const response
 }
