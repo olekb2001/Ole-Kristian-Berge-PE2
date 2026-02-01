@@ -13,6 +13,9 @@ import { useNavigate } from "react-router-dom";
 
 export default function Navbar({ isLoggedIn, role }) {
   const navigate = useNavigate();
+  const user = JSON.parse(localStorage.getItem("user"));
+  const [avatarError, setAvatarError] = useState(false);
+
   function handleTheLogout() {
     // remove login
     localStorage.removeItem("user");
@@ -76,7 +79,18 @@ export default function Navbar({ isLoggedIn, role }) {
               onClick={() => setIsAvatarMenuOpen(!isAvatarMenuOpen)}
               aria-label="User menu"
             >
-              *
+              {user?.avatar && !avatarError ? (
+                <img
+                  src={user.avatar}
+                  alt={user.name}
+                  className="navbar-avatar-img"
+                  onError={() => setAvatarError(true)}
+                />
+              ) : (
+                <span className="navbar-avatar-placeholder">
+                  {user?.name?.charAt(0).toUpperCase()}
+                </span>
+              )}
             </button>
 
             {isAvatarMenuOpen && (

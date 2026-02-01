@@ -118,3 +118,16 @@
 .logout-button:hover {
   text-decoration: underline;
 }
+
+.navbar-avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.navbar-avatar-placeholder {
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+}
