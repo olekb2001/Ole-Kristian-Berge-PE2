@@ -74,15 +74,24 @@ export async function updateAvatar(avatarUrl) {
   return json.data;
 }
 
-
-export async function getProfile(){
-  const user = JSON.parse(localStorage.getItem("user"));
-
-  if(!user){
-    throw new Error("You must be logged in");
-  }
-
+// This function fetches the full profile of a user right after login.
+// It does NOT read from localStorage because the complete user is not stored yet.
+// We use the name and accessToken returned from loginTheUser
+// to fetch the avatar before saving the final user object.
+export async function getProfile(name, accessToken) {
   const API_KEY = "8b715995-ffb8-4b82-9fb9-20a5d580c2d2";
 
-  const response
+  // request the users profile from the api
+  const response = await fetch(`${API_URL}/profiles/${name}`, {
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+      "X-Noroff-API-Key": API_KEY,
+    },
+  });
+  const json = await response.json();
+  // if request fais, show api error message
+  if (!response.ok) {
+    throw new Error(json.errors?.[0]?.message || "Failed to fetch profile");
+  }
+  return json.data;
 }

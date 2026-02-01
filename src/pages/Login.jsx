@@ -2,13 +2,17 @@ import { useState } from "react";
 import { loginTheUser } from "../api/auth";
 import { Link, useNavigate } from "react-router-dom";
 import "./Register.css";
+import { getProfile } from "../api/profile";
 
 /*
 this page lets users log into their account.
 
 the form collects email and password.
-when its submitted, it sends the data to the api.
-if its successfull, user data is then saved in localStorahge.
+when submitted, we:
+1. log the user in and get basic user data
+2. fetch the full profile to get the avatar
+3. merge the data into one complete user object
+4. save that object in localStorage for the whole app to use
 */
 
 export default function Login() {
@@ -28,8 +32,20 @@ export default function Login() {
     try {
       const userData = await loginTheUser(email, password);
 
-      //here i save the returned data in localStorage
+      // temporarily save the basic user data so we can fetch the full profile
       localStorage.setItem("user", JSON.stringify(userData));
+
+      // fetcj full profile with the avartar
+      const fullProfile = await getProfile(userData.name, userData.accessToken);
+
+      //merge login data with profile data
+      const completeUser = {
+        ...userData,
+        avatar: fullProfile.avatar?.url,
+      };
+
+      // save the complete user to locstorage
+      localStorage.setItem("user", JSON.stringify(completeUser));
 
       setMessage("Login successful");
 
