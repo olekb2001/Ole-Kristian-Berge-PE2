@@ -9,31 +9,67 @@ We include _venue=true so we also get the venue details
 
 const API_URL = "https://v2.api.noroff.dev/holidaze";
 
-export async function getMyBookings(){
-    // get logged in user from locStorage
-    const user = JSON.parse(localStorage.getItem("user"));
+export async function getMyBookings() {
+  // get logged in user from locStorage
+  const user = JSON.parse(localStorage.getItem("user"));
 
-    if(!user){
-        throw new Error("You must be logged in");
-    }
+  if (!user) {
+    throw new Error("You must be logged in");
+  }
 
-    const accessToken = user.accessToken;
-    const name = user.name;
+  const accessToken = user.accessToken;
+  const name = user.name;
 
-    const API_KEY = "8b715995-ffb8-4b82-9fb9-20a5d580c2d2";
+  const API_KEY = "8b715995-ffb8-4b82-9fb9-20a5d580c2d2";
 
-    const response = await fetch(`${API_URL}/profiles/${name}/bookings?_venue=true`,{
-        headers:{
-            Authorization: `Bearer ${accessToken}`,
-            "X-Noroff-API-Key": API_KEY,
-        },
+  const response = await fetch(
+    `${API_URL}/profiles/${name}/bookings?_venue=true`,
+    {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+        "X-Noroff-API-Key": API_KEY,
+      },
+    },
+  );
+  const json = await response.json();
 
-    });
-    const json = await response.json();
+  if (!response.ok) {
+    throw new Error(json.errors?.[0]?.message || "Failed to fetch bookings");
+  }
+  return json.data;
+}
 
-    if(!response.ok){
-        throw new Error(json.errors?.[0]?.message || "Failed to fetch bookings");
-    }
-    return json.data;
+// This function updates the avatar of the logged in user.
+export async function updateAvatar(avatarUrl) {
+  // get logged in user from locStorage
+  const user = JSON.parse(localStorage.getItem("user"));
 
+  // block request if no user is logged in
+  if (!user) {
+    throw new Error("You must be logged in");
+  }
+  const accessToken = user.accessToken;
+  const name = user.name;
+
+  const API_KEY = "8b715995-ffb8-4b82-9fb9-20a5d580c2d2";
+
+  const response = await fetch(`${API_URL}/profiles/${name}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${accessToken}`,
+      "X-Noroff-API-Key": API_KEY,
+    },
+    body: JSON.stringify({
+      avatar: {
+        url: avatarUrl,
+      },
+    }),
+  });
+  const json = await response.json();
+  // if rewuest fails , show api error msg
+  if (!response.ok) {
+    throw new Error(json.errors?.[0]?.message || "Failed to update avatar");
+  }
+  return json.data;
 }
