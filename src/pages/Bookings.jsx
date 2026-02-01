@@ -10,6 +10,8 @@ export default function Bookings() {
   // holds any error message if the request fails
   const [error, setError] = useState("");
 
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     // fetch bookings when the page loads
     async function loadTheBookings() {
@@ -18,10 +20,19 @@ export default function Bookings() {
         setBookings(data);
       } catch (err) {
         setError(err.message);
+      } finally{
+        setLoading(false);
       }
     }
     loadTheBookings();
   }, []);
+
+  // while the bookings are still being fetched from the api,
+  // we show a Loading message so the user does not briefly see
+  // the "No upcoming bookings" message before data arrives
+  if(loading){
+    return<p>Loading bookings...</p>
+  }
 
   // show error if something went wrong
   if (error) {
