@@ -3,10 +3,10 @@ import { useState } from "react";
 import { updateAvatar } from "../api/profile";
 
 export default function Profile() {
-  // get thje logged in user from locStorage
+  // get the logged in user from locStorage
   const user = JSON.parse(localStorage.getItem("user"));
 
-  // states whichh are used for the avatar update
+  // states which are used for the avatar update
   const [avatarError, setAvatarError] = useState(false);
   const [editing, setEditing] = useState(false);
   const [newAvatar, setNewAvatar] = useState("");
@@ -68,12 +68,11 @@ export default function Profile() {
           <h2>{user.name}</h2>
           <p>{user.email}</p>
           <p>Role: {user.venueManager ? "Venue Manager" : "Customer"}</p>
-          {/* this button will later allow the user to update their avatar*/}
           {editing ? (
             <>
               <input
                 type="text"
-                placeholder="Paste imge Url...."
+                placeholder="Paste image Url...."
                 value={newAvatar}
                 onChange={(e) => setNewAvatar(e.target.value)}
               />

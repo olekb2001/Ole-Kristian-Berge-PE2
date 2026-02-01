@@ -67,7 +67,7 @@ export async function updateAvatar(avatarUrl) {
     }),
   });
   const json = await response.json();
-  // if rewuest fails , show api error msg
+  // if request fails , show api error msg
   if (!response.ok) {
     throw new Error(json.errors?.[0]?.message || "Failed to update avatar");
   }
