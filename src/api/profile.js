@@ -127,3 +127,9 @@ export async function getMyVenues() {
 
   return json.data;
 }
+
+
+export async function createVenue(venueData) {
+  const user = JSON.parse(localStorage.getItem("user"));
+  
+}
