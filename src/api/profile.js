@@ -95,3 +95,14 @@ export async function getProfile(name, accessToken) {
   }
   return json.data;
 }
+
+
+export async function getMyVenues(){
+   //get logged in user from locStorage
+   const user = JSON.parse(localStorage.getItem("user"));
+
+   // block request if no user is logged in
+  if (!user) {
+    throw new Error("You must be logged in");
+  }
+}
