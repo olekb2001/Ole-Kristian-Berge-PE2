@@ -96,13 +96,34 @@ export async function getProfile(name, accessToken) {
   return json.data;
 }
 
+export async function getMyVenues() {
+  //get logged in user from locStorage
+  const user = JSON.parse(localStorage.getItem("user"));
 
-export async function getMyVenues(){
-   //get logged in user from locStorage
-   const user = JSON.parse(localStorage.getItem("user"));
-
-   // block request if no user is logged in
+  // block request if no user is logged in
   if (!user) {
     throw new Error("You must be logged in");
   }
+
+  const accessToken = user.accessToken;
+  const name = user.name;
+
+  const API_KEY = "8b715995-ffb8-4b82-9fb9-20a5d580c2d2";
+
+  // request all venues owned by this user
+  const response = await fetch(`${API_URL}/profiles/${name}/venues?_bookings=true`, {
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+      "X-Noroff-API-Key": API_KEY,
+    },
+  });
+
+  const json = await response.json();
+
+   //if request fails, show api error message
+  if (!response.ok) {
+    throw new Error(json.errors?.[0]?.message || "Failed to fetch venues");
+  }
+
+  return json.data;
 }
