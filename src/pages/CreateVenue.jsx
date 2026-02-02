@@ -31,9 +31,48 @@ export default function CreateVenue() {
             </div>
             <div>
               <label>Maximum Guests</label>
-              <input type="number"/>
+              <input type="number" />
             </div>
           </div>
+
+          <div className="two-inputs">
+            <div>
+              <label>City</label>
+              <input type="text" />
+            </div>
+            <div>
+              <label>Country</label>
+              <input type="text" />
+            </div>
+          </div>
+
+          <h3 className="amenities-title">Amenities</h3>
+          <div className="amenities-row">
+            <label>
+              <input type="checkbox" /> Wifi
+            </label>
+            <label>
+              <input type="checkbox" /> Parking
+            </label>
+            <label>
+              <input type="checkbox" /> Pets allowed
+            </label>
+            <label>
+              <input type="checkbox" /> Breakfast included
+            </label>
+          </div>
+
+          <div className="create-venue-buttons">
+            <button className="create-venue-button">Create Venue</button>
+            <button className="cancel-button">Cancel</button>
+          </div>
+        </div>
+
+        {/*right cont*/}
+        <div className="create-venue-right">
+          <h3 className="images-title">Images</h3>
+          <input type="text" placeholder="https://example.com/image.jpg" />
+          <button className="add-image-button">Add Another Image</button>
         </div>
       </div>
     </div>
