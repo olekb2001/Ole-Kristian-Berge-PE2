@@ -39,12 +39,40 @@ export default function MyVenues() {
         <p className="my-venues-subtitle">
           Manage your venues and view bookings
         </p>
-      </div>
-      {/* create nww venue button*/}
-      <div className="my-venues-actions">
-        <Link to={"/create-venue"} className="create-venue-button">
+        <Link to="/create-venue" className="create-venue-button">
           Create New Venue
         </Link>
+      </div>
+
+      <div className="my-venues-list">
+        {venues.length === 0 && <p>You have not created any venues yet</p>}
+        {venues.map((venue) => (
+          <div key={venue.id} className="my-venue-card">
+            <div className="my-venue-image">
+              {venue.media?.[0]?.url && (
+                <img src={venue.media[0].url} alt={venue.name} />
+              )}
+            </div>
+
+            <div className="my-venue-info">
+              <h2>{venue.name}</h2>
+              <p>
+                {venue.location?.city}, {venue.location?.country}
+              </p>
+              <p className="venue-price">${venue.price} / night</p>
+            </div>
+
+            <div className="my-venue-actions">
+              <Link to={`/venues/${venue.id}`} className="view-bookings-btn">
+                View Bookings
+              </Link>
+              <Link to={`/edit-venue/${venue.id}`} className="edit-venue-btn">
+                Edit Venue
+              </Link>
+              <button className="delete-venue-btn">Delete Venue</button>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );

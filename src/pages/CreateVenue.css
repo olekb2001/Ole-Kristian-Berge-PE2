@@ -155,3 +155,14 @@ textarea::placeholder {
   color: #0a2540;
   border: 2px solid #0a2540;
 }
+
+
+.create-venue-button:hover {
+  background: #103860;
+}
+
+.cancel-button:hover,
+.add-image-button:hover {
+  background: #0a2540;
+  color: #fff;
+}
