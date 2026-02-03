@@ -33,14 +33,18 @@ export default function MyVenues() {
   // show error if something went wrong
   if (error) return <p>{error}</p>;
 
-
   async function deleteBtnFix(id) {
-    const deleteConfirm = window.confirm(
-      "Sure you want to delete the venue?"
-    );
+    const deleteConfirm = window.confirm("Sure you want to delete the venue?");
 
-    if(!deleteVenue) return;
-    
+    if (!deleteConfirm) return;
+
+    try {
+      await deleteVenue(id);
+      // remove the venue from state
+      setVenues((prev) => prev.filter((d) => d.id !== id));
+    } catch (err) {
+      setError(err.message);
+    }
   }
 
   return (
@@ -60,7 +64,7 @@ export default function MyVenues() {
       <div className="my-venues-list">
         {venues.length === 0 && <p>You have not created any venues yet</p>}
         {venues.map((venue) => (
-          <div key={venue.id} className="my-venue-card">
+          <div key={venue.id} className="my-venue-card card-hover">
             <div className="my-venue-image">
               {venue.media?.[0]?.url && (
                 <img src={venue.media[0].url} alt={venue.name} />
@@ -82,7 +86,12 @@ export default function MyVenues() {
               <Link to={`/edit-venue/${venue.id}`} className="edit-venue-btn">
                 Edit Venue
               </Link>
-              <button className="delete-venue-btn">Delete Venue</button>
+              <button
+                className="delete-venue-btn"
+                onClick={() => deleteBtnFix(venue.id)}
+              >
+                Delete Venue
+              </button>
             </div>
           </div>
         ))}
