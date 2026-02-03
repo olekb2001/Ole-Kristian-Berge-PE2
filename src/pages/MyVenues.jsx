@@ -33,6 +33,16 @@ export default function MyVenues() {
   // show error if something went wrong
   if (error) return <p>{error}</p>;
 
+
+  async function deleteBtnFix(id) {
+    const deleteConfirm = window.confirm(
+      "Sure you want to delete the venue?"
+    );
+
+    if(!deleteVenue) return;
+    
+  }
+
   return (
     <div className="my-venues-page">
       <div className="my-venues-top">
