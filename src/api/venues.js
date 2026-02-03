@@ -15,7 +15,13 @@ export async function getVenues() {
   try {
     const response = await fetch(`${API_URL}/venues`);
     const json = await response.json();
-    return json.data;
+    const venues = json.data;
+
+    venues.sort((a, b) => (b.rating || 0) - (a.rating || 0));
+
+    return venues;
+
+
   } catch (error) {
     console.error("not found the venues", error);
     return [];
