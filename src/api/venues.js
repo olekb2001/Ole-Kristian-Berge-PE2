@@ -78,16 +78,30 @@ export async function createVenue(venueData) {
   return json.data;
 }
 
+/*
+This function deletes a venue created by the logged in venue manager.
 
+Because deleting a venue is a protected action, the user must be logged in
+and we must send both the access token and the Noroff api key in the headers.
 
-export async function deleteVenue(){
+It receives the id of the venue we want to delete from the MyVenues page.
+*/
+
+export async function deleteVenue(id) {
+  // here i get the logged in user from localStorage
   const user = JSON.parse(localStorage.getItem("user"));
+
+  if (!user) {
+    throw new Error("You must be logged in");
+  }
+  const accessToken = user.accessToken;
+
   const API_KEY = "8b715995-ffb8-4b82-9fb9-20a5d580c2d2";
 
   const response = await fetch(`${API_URL}/venues/${id}`, {
     method: "DELETE",
     headers: {
-      Authorization: `Bearer ${user.accessToken}`,
+      Authorization: `Bearer ${accessToken}`,
       "X-Noroff-API-Key": API_KEY,
     },
   });
