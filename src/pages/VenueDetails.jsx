@@ -38,6 +38,13 @@ export default function VenueDetails() {
     return <p>Loading Venue...</p>;
   }
 
+  //remove past bookings from unavailable Dates
+  const today = new Date();
+
+  const futureBookings = venue.bookings.filter((booking) => {
+    return new Date(booking.dateTo) >= today;
+  })
+
   /* 
     this function checks if the range of dates the user wants to book
     overlaps with any existing bookings for this venue.
@@ -51,7 +58,7 @@ export default function VenueDetails() {
     const selectedEnd = new Date(dateTo);
 
     // Check if any existing booking overlaps with the selected range
-    return venue.bookings.some((booking) => {
+    return futureBookings.some((booking) => {
       //convert the booking's dates into date objects
       const bookedStart = new Date(booking.dateFrom);
       const bookedEnd = new Date(booking.dateTo);
@@ -130,7 +137,7 @@ export default function VenueDetails() {
             */}
             <h3 className="unavailable-title">Unavailable Dates</h3>
             <div className="calender-placeholder-css">
-              {venue.bookings.map((booking) => {
+              {futureBookings.map((booking) => {
                 // format dates using my helper so they always dd/mm/yyyy
                 const from = formatDate(booking.dateFrom);
                 const to = formatDate(booking.dateTo);
