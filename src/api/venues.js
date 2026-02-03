@@ -77,3 +77,22 @@ export async function createVenue(venueData) {
   // return the created venue data
   return json.data;
 }
+
+
+
+export async function deleteVenue(){
+  const user = JSON.parse(localStorage.getItem("user"));
+  const API_KEY = "8b715995-ffb8-4b82-9fb9-20a5d580c2d2";
+
+  const response = await fetch(`${API_URL}/venues/${id}`, {
+    method: "DELETE",
+    headers: {
+      Authorization: `Bearer ${user.accessToken}`,
+      "X-Noroff-API-Key": API_KEY,
+    },
+  });
+
+  if (!response.ok) {
+    throw new Error("Failed to delete venue");
+  }
+}
