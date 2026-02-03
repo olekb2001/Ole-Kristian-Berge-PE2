@@ -35,11 +35,13 @@ export default function MyVenues() {
   return (
     <div className="my-venues-page">
       <div className="my-venues-top">
-        <h1 className="my-venues-title">My Venues</h1>
-        <p className="my-venues-subtitle">
-          Manage your venues and view bookings
-        </p>
-        <Link to="/create-venue" className="create-venue-button">
+        <div>
+          <h1 className="my-venues-title">My Venues</h1>
+          <p className="my-venues-subtitle">
+            Manage your venues and view bookings
+          </p>
+        </div>
+        <Link to="/create-venue" className="create-venue-button-1">
           Create New Venue
         </Link>
       </div>
@@ -59,7 +61,7 @@ export default function MyVenues() {
               <p>
                 {venue.location?.city}, {venue.location?.country}
               </p>
-              <p className="venue-price">${venue.price} / night</p>
+              <p className="my-venue-price">${venue.price} / night</p>
             </div>
 
             <div className="my-venue-actions">
