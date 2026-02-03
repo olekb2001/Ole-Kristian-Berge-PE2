@@ -9,19 +9,25 @@ makes it easier to maintain and and reuse on different pages.
 // this is the url for holidaze api v2
 const API_URL = "https://v2.api.noroff.dev/holidaze";
 
-// here i fetch all the venues fromm the api
-// the api v2 returns data inside { data: ... } so im accesing it through json.data
-export async function getVenues() {
+// Fetch venues from the api with pagination.
+// We only request a limited number of venues at a time
+// to avoid loading the entire api database
+export async function getVenues(page = 1, pageLimit = 20) {
+  // Calculate how many venues to skip based on the current page
+  const offset = (page - 1) * pageLimit;
   try {
-    const response = await fetch(`${API_URL}/venues`);
+    // Request venues using limit and offset so we only get 20 at a time
+    const response = await fetch(
+      `${API_URL}/venues?limit=${pageLimit}&offset=${offset}`,
+    );
     const json = await response.json();
     const venues = json.data;
 
+    // sort the 20 venues we received by rating
+    // some venues may not have rating, so we default to 0
     venues.sort((a, b) => (b.rating || 0) - (a.rating || 0));
 
     return venues;
-
-
   } catch (error) {
     console.error("not found the venues", error);
     return [];
