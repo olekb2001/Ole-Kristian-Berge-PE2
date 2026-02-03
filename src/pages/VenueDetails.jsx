@@ -24,6 +24,9 @@ export default function VenueDetails() {
   const [dateTo, setDateTo] = useState("");
   const [bookingMessage, setBookingMessage] = useState("");
 
+  // for removing venue managers access to book
+  const user = JSON.parse(localStorage.getItem("user"));
+
   useEffect(() => {
     //this fetches the venue that matches the id
     async function loadTheVenue() {
@@ -43,7 +46,7 @@ export default function VenueDetails() {
 
   const futureBookings = venue.bookings.filter((booking) => {
     return new Date(booking.dateTo) >= today;
-  })
+  });
 
   /* 
     this function checks if the range of dates the user wants to book
@@ -57,7 +60,7 @@ export default function VenueDetails() {
     const selectedStart = new Date(dateFrom);
     const selectedEnd = new Date(dateTo);
 
-    // Check if any existing booking overlaps with the selected range
+    // Check if any existing bookings overlaps with the selected range
     return futureBookings.some((booking) => {
       //convert the booking's dates into date objects
       const bookedStart = new Date(booking.dateFrom);
@@ -68,9 +71,13 @@ export default function VenueDetails() {
   }
 
   async function handleBooking() {
-    // Ensure both dates are selected
+    // Ensures both dates are selected
     if (!dateFrom || !dateTo) {
       setBookingMessage("Please select both dates");
+      return;
+    }
+    if(new Date(dateTo) <= new Date(dateFrom)){
+      setBookingMessage("End date must be after start date");
       return;
     }
     // check for overlap with existing bookings
@@ -127,55 +134,57 @@ export default function VenueDetails() {
         </div>
         {/*right side og page*/}
         <div className="right-venue-details">
-          <div className="booking-calender-card card-hover">
-            <p className="booking-price">${venue.price} / night</p>
+          {!user?.venueManager && (
+            <div className="booking-calender-card card-hover">
+              <p className="booking-price">${venue.price} / night</p>
 
-            {/*
+              {/*
             this visually shows all dates that are already booked for this venue.
             this satisfies the user story "view calendar with available and booked dates"
             without needing to use any external calendar library.
             */}
-            <h3 className="unavailable-title">Unavailable Dates</h3>
-            <div className="calender-placeholder-css">
-              {futureBookings.map((booking) => {
-                // format dates using my helper so they always dd/mm/yyyy
-                const from = formatDate(booking.dateFrom);
-                const to = formatDate(booking.dateTo);
+              <h3 className="unavailable-title">Unavailable Dates</h3>
+              <div className="calender-placeholder-css">
+                {futureBookings.map((booking) => {
+                  // format dates using my helper so they always dd/mm/yyyy
+                  const from = formatDate(booking.dateFrom);
+                  const to = formatDate(booking.dateTo);
 
-                return (
-                  <p key={booking.id}>
-                    Booked: {from} - {to}
-                  </p>
-                );
-              })}
+                  return (
+                    <p key={booking.id}>
+                      Booked: {from} - {to}
+                    </p>
+                  );
+                })}
+              </div>
+
+              {/* date inputs where the user selects the booking period */}
+              <label>From</label>
+              <input
+                type="date"
+                value={dateFrom}
+                onChange={(e) => {
+                  const chosenDate = e.target.value;
+                  setDateFrom(chosenDate);
+                }}
+              />
+
+              <label>To</label>
+              <input
+                type="date"
+                value={dateTo}
+                onChange={(e) => {
+                  const chosenDate = e.target.value;
+                  setDateTo(chosenDate);
+                }}
+              />
+              {bookingMessage && <p>{bookingMessage}</p>}
+
+              <button className="booking-button" onClick={handleBooking}>
+                Book Now
+              </button>
             </div>
-
-            {/* date inputs where the user selects the booking period */}
-            <label>From</label>
-            <input
-              type="date"
-              value={dateFrom}
-              onChange={(e) => {
-                const chosenDate = e.target.value;
-                setDateFrom(chosenDate);
-              }}
-            />
-
-            <label>To</label>
-            <input
-              type="date"
-              value={dateTo}
-              onChange={(e) => {
-                const chosenDate = e.target.value;
-                setDateTo(chosenDate);
-              }}
-            />
-            {bookingMessage && <p>{bookingMessage}</p>}
-
-            <button className="booking-button" onClick={handleBooking}>
-              Book Now
-            </button>
-          </div>
+          )}
         </div>
       </div>
     </div>
