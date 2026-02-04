@@ -4,6 +4,12 @@
   padding: 0;
 }
 
+html,
+body,
+#root {
+  height: 100%;
+}
+
 :root {
   font-family: "Inter", system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
@@ -30,4 +36,14 @@ h3 {
 .card-hover:active {
   transform: translateY(0px);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.layout-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.layout-main {
+  flex: 1;
 }

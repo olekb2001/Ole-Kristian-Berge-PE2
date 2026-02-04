@@ -6,6 +6,7 @@ outlet renders the page that matches the current url.
 import { Outlet } from "react-router-dom";
 import Navbar from "./Navbar";
 import { useEffect, useState } from "react";
+import Footer from "./Footer";
 
 export default function Layout() {
   // state that holds the user from localStorage
@@ -27,14 +28,14 @@ export default function Layout() {
   const role = storedUser?.venueManager ? "manager" : "customer";
 
   return (
-    <>
+    <div className="layout-wrapper">
       <Navbar isLoggedIn={isLoggedIn} role={role} />
-      <main>
+      <main className="layout-main">
         <Outlet />
       </main>
 
-      {/*footer for later*/}
-      <div>Footer for later</div>
-    </>
+      {/*footer*/}
+      <Footer />
+    </div>
   );
 }

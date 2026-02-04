@@ -13,20 +13,22 @@ export default function Footer() {
       <div className="footer-left">
         <img src={logo} alt="Holidaze Logo" className="footer-logo" />
       </div>
-      <div className="footer-links">
-        <Link to="/">Home</Link>
-        <Link to="/venues">Venues</Link>
+      <div className="footer-right">
+        <div className="footer-links">
+          <Link to="/">Home</Link>
+          <Link to="/venues">Venues</Link>
 
-        {isLoggedIn && role === "customer" && (
-          <Link to="/bookings">Bookings</Link>
-        )}
+          {isLoggedIn && role === "customer" && (
+            <Link to="/bookings">Bookings</Link>
+          )}
 
-        {isLoggedIn && role === "manager" && (
-          <Link to="/my-venues">My Venues</Link>
-        )}
-      </div>
-      <div className="footer-copy">
-        © 2026 Holidaze – Created by Ole Kristian Berge
+          {isLoggedIn && role === "manager" && (
+            <Link to="/my-venues">My Venues</Link>
+          )}
+        </div>
+        <div className="footer-copy">
+          © 2026 Holidaze – Created by Ole Kristian Berge
+        </div>
       </div>
     </footer>
   );
