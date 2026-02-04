@@ -32,6 +32,7 @@
 
 .register-card {
   width: 480px;
+  max-width: 100%;
   padding: 16px;
   border-radius: 8px;
   border: 1px solid rgba(10, 37, 64, 0.2);
@@ -60,6 +61,8 @@
   border: 1.5px solid rgba(10, 37, 64, 0.3);
   font-family: "Inter", sans-serif;
   font-size: 17px;
+  width: 100%; 
+  box-sizing: border-box; 
 }
 
 .register-form small {
@@ -120,3 +123,50 @@
   font-weight: 600;
   text-decoration: none;
 }
+
+@media (max-width: 768px) {
+  .register-page {
+    padding: 16px;
+  }
+
+  .register-header {
+    align-self: center;
+    text-align: center;
+    margin-bottom: 24px;
+  }
+
+  .register-title {
+    font-size: 28px;
+  }
+
+  .register-subtitle {
+    font-size: 15px;
+    margin-bottom: 24px;
+  }
+
+  .register-card {
+    width: 100%;
+  }
+
+  .register-form input[type="text"],
+  .register-form input[type="email"],
+  .register-form input[type="password"] {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .register-title {
+    font-size: 24px;
+  }
+
+  .register-button {
+    font-size: 14px;
+    height: 40px;
+  }
+
+  .login-link {
+    font-size: 13px;
+  }
+}
+
