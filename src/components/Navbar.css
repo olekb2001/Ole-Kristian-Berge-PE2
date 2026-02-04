@@ -131,3 +131,75 @@
   font-size: 14px;
   font-weight: 600;
 }
+
+.hamburger{
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    height: 64px;
+    padding: 16px;
+  }
+
+  .navbar-logo {
+    width: 100px;
+    height: 36px;
+  }
+
+  .navbar-right a,
+  .login-button,
+  .avatar-container {
+    display: none;
+  }
+
+  .hamburger {
+    display: block;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  .mobile-dropdown {
+    position: absolute;
+    top: 72px;
+    right: 16px;
+  }
+
+  .mobile-dropdown a,
+  .mobile-dropdown button {
+    display: block;
+    width: 100%;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(10, 37, 64, 0.2);
+    text-decoration: none;
+    color: #000;
+    font-family: "Inter", sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    background: none;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    text-align: left;
+  }
+
+  .mobile-dropdown a:last-child,
+  .mobile-dropdown button:last-child {
+    border-bottom: none;
+  }
+
+  .mobile-avatar-row {
+    display: flex !important;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .mobile-avatar-img,
+  .mobile-avatar-placeholder {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 2px solid #f97373; 
+    object-fit: cover;
+  }
+}

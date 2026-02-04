@@ -133,7 +133,7 @@ export default function Navbar({ isLoggedIn, role }) {
         )}
       </div>
       {isMobileMenuOpen && (
-        <div className="mobile-menu">
+        <div className="avatar-dropdown mobile-dropdown">
           <Link to="/" onClick={() => setIsMobileMenuOpen(false)}>
             Home
           </Link>
