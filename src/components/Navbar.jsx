@@ -10,6 +10,7 @@ import logo from "../assets/Holidaze-logo-desktop.png";
 import "./Navbar.css";
 import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import { Menu } from "lucide-react";
 
 export default function Navbar({ isLoggedIn, role }) {
   const navigate = useNavigate();
@@ -28,6 +29,9 @@ export default function Navbar({ isLoggedIn, role }) {
   const [isAvatarMenuOpen, setIsAvatarMenuOpen] = useState(false);
   // reference to the avatar container
   const avatarContainer = useRef(null);
+
+  //mobile
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   /*
   this listens for clicks on the page, and if the click is outside the avatar meny, 
@@ -60,6 +64,13 @@ export default function Navbar({ isLoggedIn, role }) {
       </div>
 
       <div className="navbar-right">
+        <button
+          className="hamburger"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          aria-label="Open Menu"
+        >
+          <Menu size={28} />
+        </button>
         <Link to="/">Home</Link>
         <Link to="/venues">Venues</Link>
 
@@ -121,6 +132,63 @@ export default function Navbar({ isLoggedIn, role }) {
           </div>
         )}
       </div>
+      {isMobileMenuOpen && (
+        <div className="mobile-menu">
+          <Link to="/" onClick={() => setIsMobileMenuOpen(false)}>
+            Home
+          </Link>
+          <Link to="/venues" onClick={() => setIsMobileMenuOpen(false)}>
+            Venues
+          </Link>
+
+          {!isLoggedIn && (
+            <Link to="/login" onClick={() => setIsMobileMenuOpen(false)}>
+              Login
+            </Link>
+          )}
+
+          {isLoggedIn && role === "customer" && (
+            <Link to="/bookings" onClick={() => setIsMobileMenuOpen(false)}>
+              Bookings
+            </Link>
+          )}
+
+          {isLoggedIn && role === "manager" && (
+            <Link to="/my-venues" onClick={() => setIsMobileMenuOpen(false)}>
+              My Venues
+            </Link>
+          )}
+
+          {isLoggedIn && (
+            <>
+              <Link
+                to="/profile"
+                className="mobile-avatar-row"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                <span>Update Avatar</span>
+
+                {user?.avatar && !avatarError ? (
+                  <img
+                    src={user.avatar}
+                    alt={user.name}
+                    className="mobile-avatar-img"
+                    onError={() => setAvatarError(true)}
+                  />
+                ) : (
+                  <span className="mobile-avatar-placeholder">
+                    {user?.name?.charAt(0).toUpperCase()}
+                  </span>
+                )}
+              </Link>
+
+              <button className="mobile-logout" onClick={handleTheLogout}>
+                Logout
+              </button>
+            </>
+          )}
+        </div>
+      )}
     </nav>
   );
 }
