@@ -20,6 +20,9 @@ export default function Venues() {
   // how many venues we want to show on each page
   const limitPage = 20;
 
+  // stores what the user types in the search bar
+  const [search, setSearch] = useState("");
+
   useEffect(() => {
     // runs once when the page loads
     // fetches all venues and saves them into state
@@ -30,14 +33,21 @@ export default function Venues() {
     loadTheVenues();
   }, []);
 
+  // filter venues based on search text fecs name, city, country
+  const allMyFilteredVenues = venues.filter((venue) =>
+    `${venue.name} ${venue.location?.city} ${venue.location?.country}`
+    .toLowerCase()
+    .includes(search.toLowerCase())
+  )
+
   // calculate which venues belong to the current page
   const start = (page - 1) * limitPage;
   const end = start + limitPage;
 
-  const currentVenues = venues.slice(start, end);
+  const currentVenues = allMyFilteredVenues.slice(start, end);
 
   // calculate how many pagination buttons we need
-  const totalPages = Math.ceil(venues.length / limitPage);
+  const totalPages = Math.ceil(allMyFilteredVenues.length / limitPage);
 
   //reusable pagination block
   function Pagination({ totalPages, page, setPage }) {
@@ -64,7 +74,18 @@ export default function Venues() {
       <h1 className="venues-title">Venues</h1>
       <p className="venues-subtitle">Browse all available venues</p>
 
-      <input type="text" placeholder="Enter Text..." className="venue-search" />
+      <input
+       type="text" 
+       placeholder="Enter Text..." 
+       className="venue-search"
+       value={search}
+       onChange={(e) => {
+        setSearch(e.target.value);
+        // go back to page 1 when searching
+        setPage(1);
+       }}
+       
+       />
 
       <h2 className="all-venues-title">All Venues</h2>
       <Pagination totalPages={totalPages} page={page} setPage={setPage} />
