@@ -113,9 +113,12 @@ export default function VenueDetails() {
             </div>
 
             <p className="description-venue-details"> {venue.description} </p>
+            <p className="venue-max-guests">Max {venue.maxGuests} guests</p>
+            
 
             {/* amneties*/}
             <h2 className="amenities-title">Amenities</h2>
+            
 
             <div className="amenities-cont">
               {/* items within the div */}

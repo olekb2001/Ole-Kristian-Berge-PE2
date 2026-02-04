@@ -77,6 +77,7 @@ export default function MyVenues() {
                 {venue.location?.city}, {venue.location?.country}
               </p>
               <p className="my-venue-price">${venue.price} / night</p>
+              <p className="my-venue-guests">Max {venue.maxGuests} guests</p>
             </div>
 
             <div className="my-venue-actions">

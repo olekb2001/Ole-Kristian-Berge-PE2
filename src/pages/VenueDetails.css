@@ -152,3 +152,12 @@
   color: #111;
   margin-bottom: 8px;
 }
+
+.venue-max-guests {
+  font-family: "Inter", sans-serif;
+  font-size: 17px;
+  font-weight: 600;
+  color: #111;
+  margin-top: 12px;
+  margin-bottom: 8px;
+}

@@ -76,3 +76,11 @@
   color: inherit;
   display: block;
 }
+
+.venue-guests {
+  font-family: "Inter", sans-serif;
+  font-size: 15px;
+  color: #374151;
+  margin-top: 4px;
+  font-weight: 500;
+}
