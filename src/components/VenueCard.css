@@ -1,5 +1,6 @@
 .venue-card-container {
   width: 380px;
+  max-width: 100%;
   border-radius: 8px;
   border: 1px solid rgba(10, 37, 64, 0.2);
   background: #fff;
@@ -83,4 +84,29 @@
   color: #374151;
   margin-top: 4px;
   font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .venue-card-container {
+    width: 100%;
+  }
+
+  .venue-image {
+    height: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .venue-title {
+    font-size: 18px;
+  }
+
+  .venue-price {
+    font-size: 15px;
+  }
+
+  .venue-button {
+    font-size: 14px;
+    height: 40px;
+  }
 }

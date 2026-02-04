@@ -105,3 +105,55 @@
   align-items: center;
   justify-content: center;
 }
+
+@media (max-width: 768px) {
+  .profile-page {
+    padding: 16px;
+  }
+
+  .profile-title {
+    font-size: 28px;
+  }
+
+  .profile-subtitle {
+    font-size: 15px;
+    margin-bottom: 24px;
+  }
+
+  .profile-card {
+    flex-direction: column;
+    text-align: center;
+    max-width: 100%;
+    padding: 16px;
+    gap: 16px;
+  }
+
+  .profile-avatar-wrapper {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+  }
+
+  .profile-info {
+    align-items: center;
+  }
+
+  .profile-button {
+    width: 100%;
+  }
+
+  .avatar-placeholder {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-title {
+    font-size: 24px;
+  }
+
+  .profile-button {
+    font-size: 14px;
+    height: 40px;
+  }
+}

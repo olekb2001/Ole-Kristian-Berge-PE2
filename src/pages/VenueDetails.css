@@ -61,6 +61,7 @@
 
 .right-venue-details {
   width: 432px;
+  flex-shrink: 0;
 }
 .booking-calender-card {
   display: flex;
@@ -140,6 +141,8 @@
 .booking-calender-card input {
   height: 40px;
   padding: 6px 8px;
+  width: 100%;
+  box-sizing: border-box;
 }
 .booking-calender-card label {
   margin-bottom: 4px;
@@ -160,4 +163,75 @@
   color: #111;
   margin-top: 12px;
   margin-bottom: 8px;
+}
+
+@media (max-width: 1024px) {
+  .layout-venue-details {
+    flex-direction: column;
+  }
+
+  .right-venue-details {
+    width: 100%;
+    max-width: 600px;
+  }
+}
+
+@media (max-width: 768px) {
+  .venue-details-page {
+    padding: 16px;
+  }
+
+  .venue-details-header {
+    font-size: 28px;
+  }
+
+  .venue-details-loc {
+    font-size: 15px;
+  }
+
+  .layout-venue-details {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .left-venue-details {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .right-venue-details {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .venue-details-image {
+    height: 240px;
+  }
+
+  .description-venue-details {
+    font-size: 15px;
+  }
+
+  .booking-calender-card {
+    gap: 12px;
+  }
+
+  .booking-price {
+    font-size: 18px;
+  }
+
+  .amenities-cont {
+    gap: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .venue-details-header {
+    font-size: 24px;
+  }
+
+  .booking-button {
+    font-size: 14px;
+    height: 40px;
+  }
 }

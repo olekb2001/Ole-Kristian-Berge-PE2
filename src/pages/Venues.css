@@ -35,6 +35,7 @@
 .venue-search {
   display: flex;
   width: 400px;
+  max-width: 100%;
   height: 40px;
   padding: 10px 10px 10px 12px;
   align-items: center;
@@ -92,4 +93,51 @@
   color: white;
   border-color: #111;
   font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .venues-page {
+    padding: 16px;
+  }
+
+  .venues-title {
+    font-size: 32px;
+  }
+
+  .venues-subtitle {
+    font-size: 15px;
+    margin-bottom: 16px;
+  }
+
+  .venue-search {
+    width: 100%;
+    margin-bottom: 16px;
+  }
+
+  .all-venues-title {
+    font-size: 20px;
+    margin-top: 24px;
+    margin-bottom: 24px;
+  }
+
+  .venues-grid {
+    gap: 16px;
+    justify-content: center;
+  }
+
+  .pagination {
+    margin: 16px 0;
+    gap: 8px;
+  }
+
+  .pagination button {
+    padding: 6px 10px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .venues-title {
+    font-size: 24px;
+  }
 }
