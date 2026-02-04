@@ -21,7 +21,6 @@ export async function getVenues() {
     venues.sort((a, b) => (b.rating || 0) - (a.rating || 0));
 
     return venues;
-    
   } catch (error) {
     console.error("not found the venues", error);
     return [];
@@ -115,4 +114,38 @@ export async function deleteVenue(id) {
   if (!response.ok) {
     throw new Error("Failed to delete venue");
   }
+}
+
+// Update an existing venue using its id
+// This is used on the EditVenue page when a venue manager saves changes
+export async function updateVenue(id, venueData) {
+   // get the logged in user from locStorage
+  const user = JSON.parse(localStorage.getItem("user"));
+  const API_KEY = "8b715995-ffb8-4b82-9fb9-20a5d580c2d2";
+
+   // block the request if no user is logged in
+  if (!user) {
+    throw new Error("You must be logged in");
+  }
+   // send PUT request to update the venue
+  const response = await fetch(`${API_URL}/venues/${id}`, {
+    method: "PUT",
+    headers: {
+      Authorization: `Bearer ${user.accessToken}`,
+      "X-Noroff-API-Key": API_KEY,
+      "Content-Type": "application/json",
+    },
+     // send the updated venue data to the api..
+    body: JSON.stringify(venueData),
+  });
+
+  // convert the response into js object
+  const json = await response.json();
+
+   // if something went wrong, show api error message
+  if (!response.ok) {
+    throw new Error(json.errors?.[0]?.message || "Failed to update venue");
+  }
+  // return the updated venue
+  return json.data;
 }

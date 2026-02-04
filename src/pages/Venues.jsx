@@ -36,9 +36,9 @@ export default function Venues() {
   // filter venues based on search text fecs name, city, country
   const allMyFilteredVenues = venues.filter((venue) =>
     `${venue.name} ${venue.location?.city} ${venue.location?.country}`
-    .toLowerCase()
-    .includes(search.toLowerCase())
-  )
+      .toLowerCase()
+      .includes(search.toLowerCase()),
+  );
 
   // calculate which venues belong to the current page
   const start = (page - 1) * limitPage;
@@ -75,17 +75,16 @@ export default function Venues() {
       <p className="venues-subtitle">Browse all available venues</p>
 
       <input
-       type="text" 
-       placeholder="Enter Text..." 
-       className="venue-search"
-       value={search}
-       onChange={(e) => {
-        setSearch(e.target.value);
-        // go back to page 1 when searching
-        setPage(1);
-       }}
-       
-       />
+        type="text"
+        placeholder="Enter Text..."
+        className="venue-search"
+        value={search}
+        onChange={(e) => {
+          setSearch(e.target.value);
+          // go back to page 1 when searching
+          setPage(1);
+        }}
+      />
 
       <h2 className="all-venues-title">All Venues</h2>
       <Pagination totalPages={totalPages} page={page} setPage={setPage} />

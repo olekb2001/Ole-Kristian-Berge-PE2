@@ -21,7 +21,7 @@ export async function createBooking(dateFrom, dateTo, venueId) {
   // get the logged in user froma localStorage
   const user = JSON.parse(localStorage.getItem("user"));
 
-  if(!user){
+  if (!user) {
     throw new Error("You must be logged in in to make a bookings");
   }
 
@@ -46,8 +46,8 @@ export async function createBooking(dateFrom, dateTo, venueId) {
     }),
   });
   const json = await response.json();
-  if(!response.ok){
-    throw new Error(json.errors?.[0]?.message || "Booking failed")
+  if (!response.ok) {
+    throw new Error(json.errors?.[0]?.message || "Booking failed");
   }
   return json.data;
 }

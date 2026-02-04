@@ -76,7 +76,7 @@ export default function VenueDetails() {
       setBookingMessage("Please select both dates");
       return;
     }
-    if(new Date(dateTo) <= new Date(dateFrom)){
+    if (new Date(dateTo) <= new Date(dateFrom)) {
       setBookingMessage("End date must be after start date");
       return;
     }
@@ -114,11 +114,9 @@ export default function VenueDetails() {
 
             <p className="description-venue-details"> {venue.description} </p>
             <p className="venue-max-guests">Max {venue.maxGuests} guests</p>
-            
 
             {/* amneties*/}
             <h2 className="amenities-title">Amenities</h2>
-            
 
             <div className="amenities-cont">
               {/* items within the div */}

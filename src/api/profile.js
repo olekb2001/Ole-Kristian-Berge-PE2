@@ -131,30 +131,3 @@ export async function getMyVenues() {
   return json.data;
 }
 
-export async function createVenue(venueData) {
-  const user = JSON.parse(localStorage.getItem("user"));
-
-  if (!user) {
-    throw new Error("You must be logged in");
-  }
-  const accessToken = user.accessToken;
-
-  const API_KEY = "8b715995-ffb8-4b82-9fb9-20a5d580c2d2";
-
-  const response = await fetch(`${API_URL}/venues`, {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${accessToken}`,
-      "X-Noroff-API-Key": API_KEY,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(venueData),
-  });
-
-  const json = await response.json();
-
-  if (!response.ok) {
-    throw new Error(json.errors?.[0]?.message || "Failed to create venue");
-  }
-  return json.data;
-}

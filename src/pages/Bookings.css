@@ -32,7 +32,9 @@
   align-items: stretch;
 
   /* animation*/
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 /*image left */
 .booking-image {
@@ -102,4 +104,3 @@
   display: block;
   cursor: pointer;
 }
-
