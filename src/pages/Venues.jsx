@@ -21,7 +21,7 @@ export default function Venues() {
   const limitPage = 20;
 
   useEffect(() => {
-     // runs once when the page loads
+    // runs once when the page loads
     // fetches all venues and saves them into state
     async function loadTheVenues() {
       const data = await getVenues();
@@ -39,6 +39,26 @@ export default function Venues() {
   // calculate how many pagination buttons we need
   const totalPages = Math.ceil(venues.length / limitPage);
 
+  //reusable pagination block
+  function Pagination({ totalPages, page, setPage }) {
+    return (
+      <div className="pagination">
+        {Array.from({ length: totalPages }, (_, index) => (
+          <button
+            key={index}
+            onClick={() => {
+              setPage(index + 1);
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }}
+            className={page === index + 1 ? "active-page" : ""}
+          >
+            {index + 1}
+          </button>
+        ))}
+      </div>
+    );
+  }
+
   return (
     <div className="venues-page">
       <h1 className="venues-title">Venues</h1>
@@ -47,6 +67,7 @@ export default function Venues() {
       <input type="text" placeholder="Enter Text..." className="venue-search" />
 
       <h2 className="all-venues-title">All Venues</h2>
+      <Pagination totalPages={totalPages} page={page} setPage={setPage} />
 
       <div className="venues-grid">
         {/* loops through the venues and shows just one card per venue*/}
@@ -55,17 +76,7 @@ export default function Venues() {
         ))}
       </div>
       {/* pagination buttons so the user can move between pages */}
-      <div className="pagination">
-        {Array.from({ length: totalPages }, (_, index) => (
-          <button
-            key={index}
-            onClick={() => setPage(index + 1)}
-            className={page === index + 1 ? "active-page" : ""}
-          >
-            {index + 1}
-          </button>
-        ))}
-      </div>
+      <Pagination totalPages={totalPages} page={page} setPage={setPage} />
     </div>
   );
 }
