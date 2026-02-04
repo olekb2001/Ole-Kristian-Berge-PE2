@@ -116,9 +116,7 @@ export async function deleteVenue(id) {
     },
   });
 
-  const json = await response.json();
-
   if (!response.ok) {
-    throw new Error(json.errors?.[0]?.message || "Failed to delete venue");
+    throw new Error("Failed to delete venue");
   }
 }
