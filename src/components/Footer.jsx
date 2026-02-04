@@ -8,3 +8,23 @@ export default function footer() {
   const isLoggedIn = !!user;
   const role = user?.venueManager ? "manager" : "customer";
 }
+
+return(
+    <footer className="footer">
+        <div className="footer-left">
+            <img src={logo} alt="Holidaze Logo" className="footer-logo"/>
+        </div>
+        <div className="footer-links">
+            <Link to="/"></Link>
+            <Link to="/"></Link>
+            <Link to="/"></Link>
+            <Link to="/"></Link>
+
+
+        </div>
+
+
+
+
+    </footer>
+)
