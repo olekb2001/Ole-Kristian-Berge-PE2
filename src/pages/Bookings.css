@@ -104,3 +104,71 @@
   display: block;
   cursor: pointer;
 }
+
+@media (max-width: 768px) {
+  .bookings-page {
+    padding: 16px;
+  }
+
+  .bookings-title {
+    font-size: 28px;
+  }
+
+  .bookings-subtitle {
+    font-size: 15px;
+    margin-bottom: 24px;
+  }
+
+  .booking-card {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .booking-image {
+    width: 100%;
+    height: 180px;
+  }
+
+  .booking-info h2 {
+    font-size: 18px;
+  }
+
+  .booking-info p {
+    font-size: 15px;
+  }
+
+  .booking-meta {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    text-align: left;
+    margin-left: 0;
+  }
+
+  .bookings-price {
+    font-size: 18px;
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .bookings-title {
+    font-size: 24px;
+  }
+
+  .booking-info h2 {
+    font-size: 16px;
+  }
+
+  .booking-info p {
+    font-size: 14px;
+  }
+
+  .bookings-price {
+    font-size: 16px;
+  }
+
+  .booking-status {
+    font-size: 12px;
+  }
+}

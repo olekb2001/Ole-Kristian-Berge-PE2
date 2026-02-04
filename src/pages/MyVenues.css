@@ -41,6 +41,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  white-space: nowrap;
 }
 
 .create-venue-button-1:hover {
@@ -106,6 +107,7 @@
   padding-bottom: 12px;
   display: flex;
   gap: 12px;
+  flex-wrap: wrap;
 }
 
 /* Buttons */
@@ -171,4 +173,80 @@
   color: #374151;
   margin-top: 4px;
   font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .my-venues-page {
+    padding: 16px;
+  }
+
+  .my-venues-top {
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  .my-venues-title {
+    font-size: 28px;
+  }
+
+  .my-venues-subtitle {
+    font-size: 15px;
+  }
+
+  .create-venue-button-1 {
+    width: 100%;
+  }
+
+  .my-venue-image {
+    height: 200px;
+  }
+
+  .my-venue-info h2 {
+    font-size: 18px;
+  }
+
+  .my-venue-info p {
+    font-size: 15px;
+  }
+
+  .my-venue-info .my-venue-price {
+    font-size: 18px;
+  }
+
+  .my-venue-actions {
+    gap: 8px;
+  }
+
+  .view-bookings-btn,
+  .edit-venue-btn,
+  .delete-venue-btn {
+    flex: 1;
+    min-width: 100px;
+    padding: 12px 24px;
+  }
+
+  .my-venues-list {
+    gap: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .my-venues-title {
+    font-size: 24px;
+  }
+
+  .my-venue-info h2 {
+    font-size: 16px;
+  }
+
+  .my-venue-actions {
+    flex-direction: column;
+  }
+
+  .view-bookings-btn,
+  .edit-venue-btn,
+  .delete-venue-btn {
+    width: 100%;
+  }
 }
