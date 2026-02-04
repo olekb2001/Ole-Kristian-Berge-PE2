@@ -9,25 +9,23 @@ makes it easier to maintain and and reuse on different pages.
 // this is the url for holidaze api v2
 const API_URL = "https://v2.api.noroff.dev/holidaze";
 
-// Fetch venues from the api with pagination.
-// We only request a limited number of venues at a time
-// to avoid loading the entire api database
+// Fetch venues, sort them by rating, and paginate manually
 export async function getVenues(page = 1, pageLimit = 20) {
-  // Calculate how many venues to skip based on the current page
+  // calculate how many venues to skip based on current page
   const offset = (page - 1) * pageLimit;
+
   try {
-    // Request venues using limit and offset so we only get 20 at a time
-    const response = await fetch(
-      `${API_URL}/venues?limit=${pageLimit}&offset=${offset}`,
-    );
+    // fetch ALL venues from the api
+    const response = await fetch(`${API_URL}/venues`);
     const json = await response.json();
     const venues = json.data;
 
-    // sort the 20 venues we received by rating
-    // some venues may not have rating, so we default to 0
+    // sort by rating
     venues.sort((a, b) => (b.rating || 0) - (a.rating || 0));
 
-    return venues;
+    // return only the venues for this page
+    return venues.slice(offset, offset + pageLimit);
+    
   } catch (error) {
     console.error("not found the venues", error);
     return [];
@@ -118,7 +116,9 @@ export async function deleteVenue(id) {
     },
   });
 
+  const json = await response.json();
+
   if (!response.ok) {
-    throw new Error("Failed to delete venue");
+    throw new Error(json.errors?.[0]?.message || "Failed to delete venue");
   }
 }
