@@ -60,6 +60,8 @@
   background: #fff;
   font-family: "Inter", sans-serif;
   font-size: 16px;
+  width: 100%; 
+  box-sizing: border-box; 
 }
 
 /* textarea */
@@ -126,6 +128,7 @@ textarea::placeholder {
   display: flex;
   gap: 16px;
   margin-top: 16px;
+  flex-wrap: wrap;
 }
 
 .create-venue-button,
@@ -164,4 +167,72 @@ textarea::placeholder {
 .add-image-button:hover {
   background: #0a2540;
   color: #fff;
+}
+
+@media (max-width: 1024px) {
+  .create-venue-layout {
+    flex-direction: column;
+  }
+
+  .create-venue-left,
+  .create-venue-right {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .create-venue-page {
+    padding: 16px;
+  }
+
+  .create-venue-title {
+    font-size: 28px;
+  }
+
+  .create-venue-subtitle {
+    font-size: 15px;
+    margin-bottom: 24px;
+  }
+
+  .create-venue-layout {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .two-inputs {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .amenities-row {
+    gap: 16px;
+  }
+
+  .create-venue-buttons {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .create-venue-button,
+  .cancel-button,
+  .add-image-button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .create-venue-title {
+    font-size: 24px;
+  }
+
+  .amenities-title {
+    font-size: 18px;
+  }
+
+  .create-venue-button,
+  .cancel-button,
+  .add-image-button {
+    font-size: 14px;
+    height: 40px;
+  }
 }
