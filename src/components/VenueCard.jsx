@@ -18,7 +18,7 @@ export default function VenueCard({ venue }) {
                     found out its not nessesary with this api but its still good practise
                     */}
           {venue.media?.[0]?.url && (
-            <img src={venue.media[0].url} alt={venue.name} />
+            <img src={venue.media[0].url} alt={venue.name} loading="lazy"/>
           )}
         </div>
         <div className="venue-info">

@@ -67,7 +67,7 @@ export default function MyVenues() {
           <div key={venue.id} className="my-venue-card card-hover">
             <div className="my-venue-image">
               {venue.media?.[0]?.url && (
-                <img src={venue.media[0].url} alt={venue.name} />
+                <img src={venue.media[0].url} alt={venue.name} loading="lazy"/>
               )}
             </div>
 

@@ -55,6 +55,7 @@ export default function Profile() {
               src={user.avatar}
               alt={user.name}
               className="profile-avatar-img"
+              loading="lazy"
               onError={() => setAvatarError(true)}
             />
           ) : (

@@ -9,6 +9,8 @@ makes it easier to maintain and and reuse on different pages.
 // this is the url for holidaze api v2
 const API_URL = "https://v2.api.noroff.dev/holidaze";
 
+const API_KEY = import.meta.env.VITE_API_KEY;
+
 // Fetch all venues from the api and sort them by rating
 export async function getVenues() {
   try {
@@ -60,8 +62,6 @@ export async function createVenue(venueData) {
   // extract the access token used to authorize the request
   const accessToken = user.accessToken;
 
-  const API_KEY = "8b715995-ffb8-4b82-9fb9-20a5d580c2d2";
-
   // send POST request to create a new venue
   const response = await fetch(`${API_URL}/venues`, {
     method: "POST",
@@ -101,8 +101,6 @@ export async function deleteVenue(id) {
   }
   const accessToken = user.accessToken;
 
-  const API_KEY = "8b715995-ffb8-4b82-9fb9-20a5d580c2d2";
-
   const response = await fetch(`${API_URL}/venues/${id}`, {
     method: "DELETE",
     headers: {
@@ -121,7 +119,6 @@ export async function deleteVenue(id) {
 export async function updateVenue(id, venueData) {
    // get the logged in user from locStorage
   const user = JSON.parse(localStorage.getItem("user"));
-  const API_KEY = "8b715995-ffb8-4b82-9fb9-20a5d580c2d2";
 
    // block the request if no user is logged in
   if (!user) {

@@ -74,6 +74,7 @@ export default function Bookings() {
                     <img
                       src={booking.venue.media[0].url}
                       alt={`Image of ${booking.venue.name}`}
+                      loading="lazy"
                     />
                   )}
                 </div>

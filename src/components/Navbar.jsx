@@ -95,6 +95,7 @@ export default function Navbar({ isLoggedIn, role }) {
                   src={user.avatar}
                   alt={user.name}
                   className="navbar-avatar-img"
+                  loading="lazy"
                   onError={() => setAvatarError(true)}
                 />
               ) : (
@@ -173,6 +174,7 @@ export default function Navbar({ isLoggedIn, role }) {
                     src={user.avatar}
                     alt={user.name}
                     className="mobile-avatar-img"
+                    loading="lazy"
                     onError={() => setAvatarError(true)}
                   />
                 ) : (

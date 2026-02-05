@@ -108,7 +108,7 @@ export default function VenueDetails() {
             <div className="venue-details-image">
               {/* displays image if it exists*/}
               {venue.media?.[0]?.url && (
-                <img src={venue.media[0].url} alt={`Image of ${venue.name}`} />
+                <img src={venue.media[0].url} alt={`Image of ${venue.name}`} loading="lazy" />
               )}
             </div>
 

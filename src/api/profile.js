@@ -9,6 +9,8 @@ We include _venue=true so we also get the venue details
 
 const API_URL = "https://v2.api.noroff.dev/holidaze";
 
+const API_KEY = import.meta.env.VITE_API_KEY;
+
 export async function getMyBookings() {
   // get logged in user from locStorage
   const user = JSON.parse(localStorage.getItem("user"));
@@ -19,8 +21,6 @@ export async function getMyBookings() {
 
   const accessToken = user.accessToken;
   const name = user.name;
-
-  const API_KEY = "8b715995-ffb8-4b82-9fb9-20a5d580c2d2";
 
   const response = await fetch(
     `${API_URL}/profiles/${name}/bookings?_venue=true`,
@@ -51,8 +51,6 @@ export async function updateAvatar(avatarUrl) {
   const accessToken = user.accessToken;
   const name = user.name;
 
-  const API_KEY = "8b715995-ffb8-4b82-9fb9-20a5d580c2d2";
-
   const response = await fetch(`${API_URL}/profiles/${name}`, {
     method: "PUT",
     headers: {
@@ -79,8 +77,6 @@ export async function updateAvatar(avatarUrl) {
 // We use the name and accessToken returned from loginTheUser
 // to fetch the avatar before saving the final user object.
 export async function getProfile(name, accessToken) {
-  const API_KEY = "8b715995-ffb8-4b82-9fb9-20a5d580c2d2";
-
   // request the users profile from the api
   const response = await fetch(`${API_URL}/profiles/${name}`, {
     headers: {
@@ -107,8 +103,6 @@ export async function getMyVenues() {
 
   const accessToken = user.accessToken;
   const name = user.name;
-
-  const API_KEY = "8b715995-ffb8-4b82-9fb9-20a5d580c2d2";
 
   // request all venues owned by this user
   const response = await fetch(
