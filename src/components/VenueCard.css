@@ -102,11 +102,14 @@
   }
 
   .venue-price {
-    font-size: 15px;
+    font-size: 14px;
   }
 
   .venue-button {
     font-size: 14px;
     height: 40px;
+  }
+  .venue-location{
+    font-size: 12px;
   }
 }

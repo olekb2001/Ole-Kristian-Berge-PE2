@@ -222,11 +222,11 @@ textarea::placeholder {
 
 @media (max-width: 480px) {
   .create-venue-title {
-    font-size: 24px;
+    font-size: 28px;
   }
 
   .amenities-title {
-    font-size: 18px;
+    font-size: 20px;
   }
 
   .create-venue-button,

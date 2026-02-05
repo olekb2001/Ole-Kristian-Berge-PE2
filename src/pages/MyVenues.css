@@ -233,11 +233,11 @@
 
 @media (max-width: 480px) {
   .my-venues-title {
-    font-size: 24px;
+    font-size: 28px;
   }
 
   .my-venue-info h2 {
-    font-size: 16px;
+    font-size: 18px;
   }
 
   .my-venue-actions {

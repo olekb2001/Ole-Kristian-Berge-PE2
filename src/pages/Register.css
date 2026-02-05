@@ -157,7 +157,7 @@
 
 @media (max-width: 480px) {
   .register-title {
-    font-size: 24px;
+    font-size: 28px;
   }
 
   .register-button {
@@ -166,7 +166,7 @@
   }
 
   .login-link {
-    font-size: 13px;
+    font-size: 12px;
   }
 }
 
