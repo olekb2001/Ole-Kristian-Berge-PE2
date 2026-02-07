@@ -12,7 +12,6 @@ import { findVenueId } from "../api/venues";
 import "./VenueDetails.css";
 import { createBooking } from "../api/bookings";
 import { formatDate } from "../utils/formatDate";
-import Calendar from "react-calendar";
 
 export default function VenueDetails() {
   const { id } = useParams();
