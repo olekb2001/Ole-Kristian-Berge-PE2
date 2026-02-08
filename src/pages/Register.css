@@ -61,8 +61,8 @@
   border: 1.5px solid rgba(10, 37, 64, 0.3);
   font-family: "Inter", sans-serif;
   font-size: 17px;
-  width: 100%; 
-  box-sizing: border-box; 
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .register-form small {
@@ -169,4 +169,3 @@
     font-size: 12px;
   }
 }
-

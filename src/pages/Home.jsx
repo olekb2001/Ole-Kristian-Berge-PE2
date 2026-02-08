@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { getVenues } from "../api/venues";
 import VenueCard from "../components/VenueCard";
-import "./Home.css"
+import "./Home.css";
 
 export default function Home() {
   const [venues, setVenues] = useState([]);
