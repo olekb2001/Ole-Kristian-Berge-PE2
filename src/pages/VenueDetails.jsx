@@ -76,6 +76,7 @@ export default function VenueDetails() {
       setBookingMessage("Please select both dates");
       return;
     }
+    //prevent booking in the past
     const today = new Date();
     today.setHours(0, 0, 0, 0);
 

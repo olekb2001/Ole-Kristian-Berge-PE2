@@ -29,6 +29,16 @@ export async function getVenues() {
   }
 }
 
+/*
+This funnction fetches venues sorted by creation date 
+
+Instead of sorting manually in the frontend,
+we use the api  query parameters to request the venues
+already sorted by created date in descending order.
+
+This ensures that newly created venues appear first
+on the Venbues page.
+*/
 export async function getNewestVenues() {
   try {
     const response = await fetch(
