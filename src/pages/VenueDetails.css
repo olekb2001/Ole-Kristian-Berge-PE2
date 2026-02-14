@@ -164,6 +164,21 @@
   margin-top: 12px;
   margin-bottom: 8px;
 }
+.manager-bookings-title {
+  font-family: "Poppins", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #111;
+  margin: 0;
+}
+
+.manager-bookings-text {
+  font-family: "Inter", sans-serif;
+  font-size: 15px;
+  color: #111;
+  line-height: 1.5;
+  margin: 0;
+}
 
 @media (max-width: 1024px) {
   .layout-venue-details {
@@ -223,6 +238,13 @@
   .amenities-cont {
     gap: 12px;
   }
+  .manager-bookings-title {
+    font-size: 18px;
+  }
+
+  .manager-bookings-text {
+    font-size: 14px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -233,5 +255,12 @@
   .booking-button {
     font-size: 14px;
     height: 40px;
+  }
+  .manager-bookings-title {
+    font-size: 16px;
+  }
+
+  .manager-bookings-text {
+    font-size: 13px;
   }
 }
