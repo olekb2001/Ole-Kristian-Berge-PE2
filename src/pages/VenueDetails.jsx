@@ -76,7 +76,12 @@ export default function VenueDetails() {
       setBookingMessage("Please select both dates");
       return;
     }
-    if (new Date(dateFrom) < new Date()) {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    const selectedStart = new Date(dateFrom);
+
+    if (selectedStart < today) {
       setBookingMessage("You cannot book dates in the past");
       return;
     }
