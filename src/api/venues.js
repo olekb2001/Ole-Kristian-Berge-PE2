@@ -29,8 +29,18 @@ export async function getVenues() {
   }
 }
 
-export async function getNewestVenues(){
-  
+export async function getNewestVenues() {
+  try {
+    const response = await fetch(
+      `${API_URL}/venues?sort=created&sortOrder=desc`,
+    );
+
+    const json = await response.json();
+    return json.data;
+  } catch (error) {
+    console.error("could not fetch newest venueS", error);
+    return [];
+  }
 }
 
 // im fetching a single venue by the id from the url.
@@ -121,14 +131,14 @@ export async function deleteVenue(id) {
 // Update an existing venue using its id
 // This is used on the EditVenue page when a venue manager saves changes
 export async function updateVenue(id, venueData) {
-   // get the logged in user from locStorage
+  // get the logged in user from locStorage
   const user = JSON.parse(localStorage.getItem("user"));
 
-   // block the request if no user is logged in
+  // block the request if no user is logged in
   if (!user) {
     throw new Error("You must be logged in");
   }
-   // send PUT request to update the venue
+  // send PUT request to update the venue
   const response = await fetch(`${API_URL}/venues/${id}`, {
     method: "PUT",
     headers: {
@@ -136,14 +146,14 @@ export async function updateVenue(id, venueData) {
       "X-Noroff-API-Key": API_KEY,
       "Content-Type": "application/json",
     },
-     // send the updated venue data to the api..
+    // send the updated venue data to the api..
     body: JSON.stringify(venueData),
   });
 
   // convert the response into js object
   const json = await response.json();
 
-   // if something went wrong, show api error message
+  // if something went wrong, show api error message
   if (!response.ok) {
     throw new Error(json.errors?.[0]?.message || "Failed to update venue");
   }

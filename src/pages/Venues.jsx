@@ -8,7 +8,7 @@ Each venue is displayed using the VenueCard component.
 import VenueCard from "../components/VenueCard";
 import "./Venues.css";
 import { useEffect, useState } from "react";
-import { getVenues } from "../api/venues";
+import { getNewestVenues} from "../api/venues";
 
 export default function Venues() {
   // stores all venues fetched from the API
@@ -27,7 +27,7 @@ export default function Venues() {
     // runs once when the page loads
     // fetches all venues and saves them into state
     async function loadTheVenues() {
-      const data = await getVenues();
+      const data = await getNewestVenues();
       setVenues(data);
     }
     loadTheVenues();
