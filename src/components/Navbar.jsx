@@ -110,17 +110,17 @@ export default function Navbar({ isLoggedIn, role }) {
                 {/* menu items based on yor role*/}
                 {role === "customer" && (
                   <div className="dropdown-item">
-                    <Link to="/bookings">Bookings</Link>
+                    <Link to="/bookings" onClick={() => setIsAvatarMenuOpen(false)}>Bookings</Link>
                   </div>
                 )}
 
                 {role === "manager" && (
                   <div className="dropdown-item">
-                    <Link to="/my-venues">My Venues</Link>
+                    <Link to="/my-venues" onClick={() => setIsAvatarMenuOpen(false)}>My Venues</Link>
                   </div>
                 )}
                 <div className="dropdown-item">
-                  <Link to="/profile">Update Avatar</Link>
+                  <Link to="/profile" onClick={() => setIsAvatarMenuOpen(false)}>Update Avatar</Link>
                 </div>
 
                 <div className="dropdown-item">
