@@ -16,6 +16,14 @@ AI was occasionally used to:
 - Clarify general JavaScript and React concepts
 - Discuss ISO date formatting
 - Talk through structural decisions at a conceptual level
+- Explain performance testing tools such as Lighthouse and how to improve it 
+- Help structure and draft the README file
+- Help identify why routes returned 404 errors on Netlify
+- Explain how to implement a `_redirects` file
+
+Outcome:
+All solutions were implemented independently after understanding the explanations.
+
 
 No production code was generated or copied from AI.
 
@@ -49,7 +57,7 @@ AI was used to help phrase a small number of explanatory comments in the Figma f
 
 ---
 
-## 3. Kanban/roadmap structuring
+## 5. Kanban / roadmap structuring
 
 AI was used to help structure the Kanban board and roadmap planning, including discussing task breakdown and estimating reasonable time allocations.
 
