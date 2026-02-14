@@ -200,6 +200,20 @@ export default function VenueDetails() {
               </button>
             </div>
           )}
+          {user?.venueManager && (
+            <div className="booking-calender-card card-hover">
+              <h3>Bookings for this venue</h3>
+
+              {futureBookings.length === 0 && <p>No upcoming bookings.</p>}
+
+              {futureBookings.map((booking) => (
+                <p key={booking.id}>
+                  {formatDate(booking.dateFrom)} - {formatDate(booking.dateTo)}{" "}
+                  | Guests: {booking.guests}
+                </p>
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </div>
