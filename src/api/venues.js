@@ -29,6 +29,10 @@ export async function getVenues() {
   }
 }
 
+export async function getNewestVenues(){
+  
+}
+
 // im fetching a single venue by the id from the url.
 // this is used on the VenueDetails Page.
 export async function findVenueId(id) {
