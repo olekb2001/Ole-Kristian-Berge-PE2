@@ -41,6 +41,21 @@ The majority of code comments in this project were written independently by me t
 
 ---
 
+## 4. Figma Documentation 
+
+All Figma design work and the style guide were created independently by me.
+AI was used to help phrase a small number of explanatory comments in the Figma file where I needed assistance articulating design decisions.
+
+
+---
+
+## 3. Kanban/roadmap structuring
+
+AI was used to help structure the Kanban board and roadmap planning, including discussing task breakdown and estimating reasonable time allocations.
+
+
+---
+
 ## What AI Was NOT Used For
 
 AI was NOT used to:
@@ -52,6 +67,8 @@ AI was NOT used to:
 - Write authentication logic
 - Build API request functions
 - Configure deployment
+
+GitHub Copilot was disabled for the entirety of this project.
 
 All functionality was implemented independently.
 
