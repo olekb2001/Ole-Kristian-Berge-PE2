@@ -76,6 +76,10 @@ export default function VenueDetails() {
       setBookingMessage("Please select both dates");
       return;
     }
+    if (new Date(dateFrom) < new Date()) {
+      setBookingMessage("You cannot book dates in the past");
+      return;
+    }
     if (new Date(dateTo) <= new Date(dateFrom)) {
       setBookingMessage("End date must be after start date");
       return;
